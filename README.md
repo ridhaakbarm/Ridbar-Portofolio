@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RidBar Portofolio
 
 Professional portfolio website for manufacturing systems, production monitoring, maintenance workflows, lab dispatch, and internal enterprise applications.
@@ -53,3 +54,6 @@ When new screenshots or operational metrics are available, update:
 - `public/ridbar-resume.md`
 
 Do not add fake percentage metrics. Keep impact language qualitative unless real before/after measurements are available.
+=======
+# Ridbar-Portofolio
+>>>>>>> a52f02ad6d91d8ea1623f9eaef715338f764c931

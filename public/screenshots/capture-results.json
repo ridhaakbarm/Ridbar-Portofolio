@@ -1,0 +1,226 @@
+[
+  {
+    "app": "cmb",
+    "name": "dashboard",
+    "route": "/layouts",
+    "filename": "cmb-dashboard.png",
+    "finalUrl": "http://127.0.0.1:8011/layouts",
+    "status": "ok"
+  },
+  {
+    "app": "cmb",
+    "name": "work-orders",
+    "route": "/work-orders-cmb",
+    "filename": "cmb-work-orders.png",
+    "finalUrl": "http://127.0.0.1:8011/work-orders-cmb",
+    "status": "ok"
+  },
+  {
+    "app": "cmb",
+    "name": "qc-dashboard",
+    "route": "/qc-dashboard",
+    "filename": "cmb-qc-dashboard.png",
+    "finalUrl": "http://127.0.0.1:8011/qc-dashboard",
+    "status": "ok"
+  },
+  {
+    "app": "cmb",
+    "name": "machine-monitoring",
+    "route": "/machine-monitoring",
+    "filename": "cmb-machine-monitoring.png",
+    "finalUrl": "http://127.0.0.1:8011/machine-monitoring",
+    "status": "ok"
+  },
+  {
+    "app": "cmb",
+    "name": "traceability",
+    "route": "/traceability",
+    "filename": "cmb-traceability.png",
+    "finalUrl": "http://127.0.0.1:8011/traceability",
+    "status": "ok"
+  },
+  {
+    "app": "oee",
+    "name": "dashboard",
+    "route": "/layouts",
+    "filename": "oee-dashboard.png",
+    "finalUrl": "http://127.0.0.1:8012/layouts",
+    "status": "ok"
+  },
+  {
+    "app": "oee",
+    "name": "monitoring-board",
+    "route": "/laporan/oee/monitoring-board",
+    "filename": "oee-monitoring-board.png",
+    "finalUrl": "http://127.0.0.1:8012/laporan/oee/monitoring-board",
+    "status": "ok"
+  },
+  {
+    "app": "oee",
+    "name": "availability",
+    "route": "/analisa/oee/availability",
+    "filename": "oee-availability.png",
+    "finalUrl": "http://127.0.0.1:8012/analisa/oee/availability",
+    "status": "ok"
+  },
+  {
+    "app": "oee",
+    "name": "top-downtime",
+    "route": "/analisa/oee/top-downtime",
+    "filename": "oee-top-downtime.png",
+    "finalUrl": "http://127.0.0.1:8012/analisa/oee/top-downtime",
+    "status": "ok"
+  },
+  {
+    "app": "lab-dispatch",
+    "name": "board",
+    "route": "/",
+    "filename": "lab-dispatch-board.png",
+    "finalUrl": "http://127.0.0.1:8013/",
+    "status": "ok"
+  },
+  {
+    "app": "lab-dispatch",
+    "name": "sample-create",
+    "route": "/sample/create",
+    "filename": "lab-dispatch-sample-create.png",
+    "finalUrl": "http://127.0.0.1:8013/sample/create",
+    "status": "ok"
+  },
+  {
+    "app": "k-maint",
+    "name": "dashboard",
+    "route": "/dashboard",
+    "filename": "k-maint-dashboard.png",
+    "finalUrl": "http://127.0.0.1:8018/dashboard",
+    "status": "ok"
+  },
+  {
+    "app": "k-maint",
+    "name": "ticket-monitoring",
+    "route": "/tickets/monitoring-tiket",
+    "filename": "k-maint-ticket-monitoring.png",
+    "finalUrl": "http://127.0.0.1:8018/tickets/monitoring-tiket",
+    "status": "ok"
+  },
+  {
+    "app": "k-maint",
+    "name": "team-monitoring",
+    "route": "/monitoring/team",
+    "filename": "k-maint-team-monitoring.png",
+    "finalUrl": "http://127.0.0.1:8018/monitoring/team",
+    "status": "ok"
+  },
+  {
+    "app": "k-maint",
+    "name": "pm-checks",
+    "route": "/pm-checks/list/weekly",
+    "filename": "k-maint-pm-checks.png",
+    "finalUrl": "http://127.0.0.1:8018/pm-checks/list/weekly",
+    "status": "ok"
+  },
+  {
+    "app": "pdr",
+    "name": "dashboard",
+    "route": "/dashboard",
+    "filename": "pdr-dashboard.png",
+    "finalUrl": "http://127.0.0.1:8014/dashboard",
+    "status": "ok"
+  },
+  {
+    "app": "pdr",
+    "name": "daily-reports",
+    "route": "/daily-reports",
+    "filename": "pdr-daily-reports.png",
+    "finalUrl": "http://127.0.0.1:8014/daily-reports",
+    "status": "ok"
+  },
+  {
+    "app": "pdr",
+    "name": "weekly-report",
+    "route": "/reports/weekly",
+    "filename": "pdr-weekly-report.png",
+    "finalUrl": "http://127.0.0.1:8014/reports/weekly",
+    "status": "ok"
+  },
+  {
+    "app": "pdr",
+    "name": "noc-summary",
+    "route": "/noc-report/summary",
+    "filename": "pdr-noc-summary.png",
+    "finalUrl": "http://127.0.0.1:8014/noc-report/summary",
+    "status": "http-500"
+  },
+  {
+    "app": "am",
+    "name": "home",
+    "route": "/",
+    "filename": "am-home.png",
+    "finalUrl": "http://127.0.0.1:8015/",
+    "status": "ok"
+  },
+  {
+    "app": "am",
+    "name": "daily-checks",
+    "route": "/daily-checks",
+    "filename": "am-daily-checks.png",
+    "finalUrl": "http://127.0.0.1:8015/",
+    "status": "ok"
+  },
+  {
+    "app": "am",
+    "name": "maintenance-tickets",
+    "route": "/maintenance-tickets",
+    "filename": "am-maintenance-tickets.png",
+    "finalUrl": "http://127.0.0.1:8015/maintenance-tickets",
+    "status": "http-404"
+  },
+  {
+    "app": "gw",
+    "name": "home",
+    "route": "/",
+    "filename": "gw-home.png",
+    "finalUrl": "http://127.0.0.1:8016/login",
+    "status": "ok"
+  },
+  {
+    "app": "gw",
+    "name": "template-cleaning",
+    "route": "/admin/template-cleaning",
+    "filename": "gw-template-cleaning.png",
+    "finalUrl": "http://127.0.0.1:8016/login",
+    "status": "ok"
+  },
+  {
+    "app": "gw",
+    "name": "form-bongkar",
+    "route": "/operator/form-bongkar",
+    "filename": "gw-form-bongkar.png",
+    "finalUrl": "http://127.0.0.1:8016/login",
+    "status": "ok"
+  },
+  {
+    "app": "mixing",
+    "name": "home",
+    "route": "/",
+    "filename": "mixing-home.png",
+    "finalUrl": "http://127.0.0.1:8017/login",
+    "status": "ok"
+  },
+  {
+    "app": "mixing",
+    "name": "search",
+    "route": "/mixing/search",
+    "filename": "mixing-search.png",
+    "finalUrl": "http://127.0.0.1:8017/login",
+    "status": "ok"
+  },
+  {
+    "app": "mixing",
+    "name": "input-history",
+    "route": "/mixing/input-history",
+    "filename": "mixing-input-history.png",
+    "finalUrl": "http://127.0.0.1:8017/login",
+    "status": "ok"
+  }
+]

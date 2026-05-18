@@ -39,7 +39,7 @@ export default function Home() {
                 ["Systems built", `${projects.length}`],
                 ["Featured systems", `${featuredProjects.length}`],
                 ["Candidate profile", "Industrial Engineering"],
-                ["Career direction", "Operations Leader"]
+                ["Core focus", "Operational Systems"]
               ].map(([label, value]) => (
                 <div key={label} className="rounded-md border border-white/10 bg-white/5 p-4">
                   <p className="text-xs uppercase tracking-[0.18em] text-white/50">{label}</p>

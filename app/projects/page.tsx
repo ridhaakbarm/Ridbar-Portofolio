@@ -9,9 +9,9 @@ export default function ProjectsPage() {
       <Header />
       <section className="mx-auto max-w-7xl px-5 py-16">
         <SectionTitle
-          eyebrow="Project inventory"
-          title="Portfolio candidates and featured systems"
-          description="This page keeps every target project visible while the homepage focuses on the strongest case studies."
+          eyebrow="Systems portfolio"
+          title="Manufacturing and operations systems"
+          description="A collection of internal applications built for production visibility, workflow automation, reporting, traceability, maintenance, lab dispatch, and process control."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (

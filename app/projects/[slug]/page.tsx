@@ -66,17 +66,17 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </section>
 
         <section className="mt-8 grid gap-5 md:grid-cols-2">
-          <InfoList title="Business Impact" items={project.impact} />
+          <InfoList title="Operational Impact" items={project.impact} />
           <InfoList title="Architecture Highlights" items={project.architecture} />
         </section>
 
         <section className="mt-8 rounded-lg border border-amber/40 bg-white p-6 shadow-sm md:p-8">
-          <h2 className="text-2xl font-black text-ink">Evidence Notes</h2>
+          <h2 className="text-2xl font-black text-ink">Delivery Highlights</h2>
           <p className="mt-3 text-sm leading-6 text-steel">
-            This portfolio avoids fake claims. These notes show what is currently known and what needs validation from the actual source folder.
+            A closer look at the operational workflows, automation, reporting, and integration points delivered in this system.
           </p>
           <div className="mt-5 grid gap-3">
-            {project.evidence.map((item) => (
+            {project.deliveryHighlights.map((item) => (
               <ListItem key={item}>{item}</ListItem>
             ))}
           </div>

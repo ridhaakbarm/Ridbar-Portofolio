@@ -2,7 +2,7 @@ export type ProjectStatus = "featured" | "additional";
 
 export type Project = {
   slug: string;
-  sourceFolder: string;
+  systemKey: string;
   title: string;
   status: ProjectStatus;
   category: string;
@@ -24,14 +24,14 @@ export type Project = {
   techStack: string[];
   impact: string[];
   architecture: string[];
-  evidence: string[];
+  deliveryHighlights: string[];
   score: number;
 };
 
 export const projects: Project[] = [
   {
     slug: "cmb-manufacturing-execution",
-    sourceFolder: "kasakata-cmb",
+    systemKey: "cmb",
     title: "CMB Manufacturing Execution And Traceability System",
     status: "featured",
     category: "MES-like production workflow",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
       "A Laravel-based internal manufacturing system for CMB work orders, production steps, QC visibility, traceability, urgent deliveries, machine monitoring, and production schedule sync.",
     preview: {
       label: "Workflow board preview",
-      note: "Portfolio UI preview based on audited routes, controllers, views, and exports, not a captured production screenshot.",
+      note: "Dashboard-style preview showing the production workflow, quality checkpoints, traceability, and schedule coordination layer.",
       metrics: ["Work orders", "QC checks", "Traceability", "Schedule sync"],
       flow: ["Plan", "Execute", "QC verify", "Trace"]
     },
@@ -100,21 +100,21 @@ export const projects: Project[] = [
       "Supported faster operational follow-up for urgent delivery and WIP conditions"
     ],
     architecture: [
-      "Domain controllers include WorkOrderController_cmb, TraceabilityController, QcDashboardController, MachineMonitoringController, MixerMonitoringController, PlanAktualController, and UrgentDeliveryController",
-      "Core models include WorkOrder, WoStep, WoStepPause, ProcessStep, ProcessLog, ProductionSchedule, PlanAktual, SampleCheck, MachineStatusLog, and MetalDetectorInspection",
-      "Integrations include GoogleSheetService plus SendLotToSheet and SyncProductionSchedule console commands",
-      "Operational exports are separated into dedicated export classes for monitoring, QC, stage detail, timbangan, and work orders"
+      "MES-like domain structure covering work orders, process steps, pauses, production schedules, QC samples, machine status, and delivery follow-up",
+      "Traceability layer connects SPK, lots, process logs, output tracking, WIP extrusion, lead time, and monthly production detail",
+      "Google Sheet synchronization supports production schedule and lot data coordination",
+      "Export modules separate monitoring, QC detail, stage detail, weighing, and work order reporting"
     ],
-    evidence: [
-      "routes/web.php includes work order step play/close, sample result updates, WIP extrusion, monitoring board data, urgent delivery tracking, imports, templates, and Excel export routes",
-      "resources/views contains traceability, tracking, QC dashboard, machine monitoring, mixer monitoring, work order, schedule, and urgent delivery pages",
-      "composer.json confirms Laravel 12, Google API, Sanctum, Excel, and Yajra DataTables"
+    deliveryHighlights: [
+      "Work order execution flow supports step start, close, correction, cancellation, output updates, and QC result updates",
+      "Operational dashboards cover traceability, tracking, QC status, machine monitoring, mixer monitoring, schedules, and urgent deliveries",
+      "Built with Laravel 12, Google API integration, Sanctum, Excel exports, and DataTables for operational data handling"
     ],
     score: 96
   },
   {
     slug: "oee-production-monitoring",
-    sourceFolder: "kasakata-oee",
+    systemKey: "oee",
     title: "OEE Production Monitoring System",
     status: "featured",
     category: "Production monitoring",
@@ -122,7 +122,7 @@ export const projects: Project[] = [
       "A production performance system for OEE reporting, machine target management, approval workflow, downtime analysis, KPI exports, and recalculation commands.",
     preview: {
       label: "OEE analytics preview",
-      note: "Portfolio UI preview based on OEE monitoring, approval, analysis, export, and recalculation evidence.",
+      note: "Analytics preview showing availability, performance, quality, downtime, approvals, and exportable production review workflows.",
       metrics: ["Availability", "Performance", "Quality", "Downtime"],
       flow: ["Input", "Review", "Approve", "Analyze"]
     },
@@ -172,21 +172,21 @@ export const projects: Project[] = [
       "Created exportable production analytics for machine and downtime reviews"
     ],
     architecture: [
-      "Core controllers include LaporanOeeController, AnalisaOeeController, DashboardController, MachineMonitoringController, and MachineTargetController",
-      "Models include LaporanOee, MachineTarget, MasterMesin, Operator, Produk, and WorkOrderCMB",
-      "Migrations show OEE calculation fields, approval workflow, planned downtime, weighing, reject/loss material, revision tracking, and maintenance notes",
-      "Export classes cover dashboard machine OEE, machine detail, top downtime detail, top downtime summary, and monitoring data"
+      "OEE domain model connects machine targets, production reports, products, operators, work orders, downtime, weighing, reject/loss material, and maintenance notes",
+      "Approval and revision workflow supports draft continuation, pending review, rejection handling, and status tracking",
+      "Recalculation utilities keep KPI values consistent across changing production data",
+      "Export layer supports machine OEE summaries, machine detail, top downtime analysis, and monitoring board data"
     ],
-    evidence: [
-      "resources/views includes laporan/oee/monitoring-board, pending, rejected, show, create, edit, and analisa/oee pages",
-      "app/Console/Commands includes RecalculateAllOEE, RecalculateOeeData, FixInconsistentOEE, BackfillOeeTrackingFields, SyncProductsFromCMB, and SyncProductionSchedule",
-      "routes/web.php includes OEE monitoring, approval, revision, analysis, import, and export routes"
+    deliveryHighlights: [
+      "OEE workflow covers report creation, monitoring board review, pending approvals, rejected revisions, and analysis pages",
+      "Automation supports OEE recalculation, data cleanup, production schedule sync, and product synchronization",
+      "Reporting flow includes monitoring, approval, revision, analysis, import, and export operations"
     ],
     score: 95
   },
   {
     slug: "k-maint-maintenance-workflow",
-    sourceFolder: "K-Maint",
+    systemKey: "k-maint",
     title: "K-Maint Maintenance Workflow System",
     status: "featured",
     category: "Maintenance operations",
@@ -194,7 +194,7 @@ export const projects: Project[] = [
       "A maintenance management platform for tickets, preventive maintenance, assets, machine parts, technician activity, attendance, notifications, reports, and exports.",
     preview: {
       label: "Maintenance command center preview",
-      note: "Portfolio UI preview based on ticket, PM, monitoring, technician, notification, and export evidence.",
+      note: "Command-center preview for ticket follow-up, preventive maintenance, technician activity, notifications, and reporting.",
       metrics: ["Tickets", "PM checks", "Technicians", "Assets"],
       flow: ["Report", "Assign", "Execute", "Close"]
     },
@@ -249,21 +249,21 @@ export const projects: Project[] = [
       "Reduced informal maintenance tracking through dashboards and reports"
     ],
     architecture: [
-      "Controllers include TicketController, PmCheckController, PmScheduleController, ChecklistTemplateController, MonitoringController, SchedulingController, AssetController, and ExportController",
-      "Models include Ticket, TicketNote, TicketStatusHistory, Asset, MachinePart, PmSchedule, PmCheck, PmCheckItem, TechnicianActivity, TechnicianAttendance, Notification, Vendor, and Pic",
-      "Migrations show PM schedules, PM checks, checklist items, technician activities, ticket notes, pending fields, status enums, PR number, pause tracking, and supervisor action fields",
-      "Routes separate ticket execution, PM execution, reports, monitoring, scheduling, and admin master data"
+      "Maintenance domain model connects tickets, ticket notes, status history, assets, machine parts, PM schedules, PM checks, checklist items, technicians, attendance, vendors, and PIC ownership",
+      "Ticket lifecycle separates reporting, execution, pending/resume handling, supervisor review, and closure",
+      "Preventive maintenance workflow supports schedule generation, checklist execution, verification, and approval",
+      "Monitoring and export layer supports ticket reports, PM reports, technician activity, and scheduling"
     ],
-    evidence: [
-      "routes/web.php includes ticket monitoring, start/finish/close, after-photo upload, pending/resume, supervisor review, PM verify/approve, scheduling generation, and monitoring exports",
-      "resources/views includes tickets/monitoring, pm-checks, pm-schedules, monitoring/team, teknisi/dashboard, reports/pm, and scheduling pages",
-      "composer.json confirms Laravel 10, Sanctum, Excel, and Yajra DataTables"
+    deliveryHighlights: [
+      "Ticket workflow supports monitoring, start, finish, close, after-photo upload, pending, resume, and supervisor review",
+      "PM workflow supports verification, approval, schedule generation, checklist execution, and monitoring exports",
+      "Built with Laravel 10, Sanctum, Excel exports, DataTables, and role-based maintenance screens"
     ],
     score: 93
   },
   {
     slug: "lab-dispatch-qc-queue",
-    sourceFolder: "lab-dispatch-system",
+    systemKey: "lab-dispatch",
     title: "Lab Dispatch And QC Queue System",
     status: "featured",
     category: "QC lab workflow",
@@ -271,7 +271,7 @@ export const projects: Project[] = [
       "A QC laboratory dispatch system for sample queues, operator assignment, PPIC priorities, verifier approval, raw material sample workflows, monitoring, and exports.",
     preview: {
       label: "Lab queue preview",
-      note: "Portfolio UI preview based on board, queue management, QC dashboard, PPIC, verifier, and raw material workflow evidence.",
+      note: "Queue preview showing sample dispatch, operator workload, QC dashboard actions, PPIC priorities, verifier approval, and raw material workflow.",
       metrics: ["Samples", "Operators", "Priority", "Verifier"],
       flow: ["Create", "Assign", "Test", "Verify"]
     },
@@ -331,21 +331,21 @@ export const projects: Project[] = [
       "Faster operational coordination through board, dashboards, and role-based flows"
     ],
     architecture: [
-      "Controllers include BoardController, QueueManagementController, QCDashboardController, QCMonitoringController, QCSampleController, RawMaterialSampleController, PpicDashboardController, VerifierDashboardController, and NewRawMaterialApprovalController",
-      "API controllers include Api/AntrianController and Api/LabResultController",
-      "Models include Sample, QCSample, QCOperator, QCWorkLog, QCSampleTimeSession, DailyPriority, NewRawMaterial, NewRawMaterialChecklist, and NewRawMaterialImportHistory",
-      "NewRawMaterialService enforces checklist completion, approval/rejection, and QC sample creation"
+      "Lab dispatch domain connects samples, QC samples, operators, work logs, time sessions, daily priorities, raw material requests, approval checklists, and import history",
+      "Role-based workflow separates public board, operator kiosk, QC dashboard, PPIC priority view, verifier review, and raw material approval",
+      "Service layer enforces raw material checklist completion, approval/rejection rules, and QC sample generation",
+      "API endpoints support queue updates and lab result handoff for responsive monitoring screens"
     ],
-    evidence: [
-      "routes/web.php includes board, operator task completion, queue management, QC dashboard actions, PPIC priorities, verifier approval, QC operators, samples, raw material samples, and new raw materials",
-      "app/Console/Commands includes DispatchPendingSamples and CleanUpStaleTasks",
-      "resources/views includes board, operator/kiosk, qc/dashboard, qc/monitoring, queue/manage, ppic/dashboard, verifier/dashboard, and qc/new-raw-materials pages"
+    deliveryHighlights: [
+      "Queue workflow covers sample creation, operator task completion, QC assignment, reassignment, pause/resume, downtime, and time history",
+      "Coordination screens support board monitoring, operator kiosk, QC dashboard, PPIC priorities, verifier approval, and raw material sample review",
+      "Automation handles pending sample dispatch and cleanup of stale work sessions"
     ],
     score: 92
   },
   {
     slug: "production-daily-reporting",
-    sourceFolder: "kasakata-pdr",
+    systemKey: "pdr",
     title: "Production Daily Reporting System",
     status: "featured",
     category: "Production reporting",
@@ -353,7 +353,7 @@ export const projects: Project[] = [
       "A daily production reporting system covering mixing, extrusion, lab, packing, powder, shift schedules, NOC input/reporting, verification, and weekly/monthly reports.",
     preview: {
       label: "Daily reporting preview",
-      note: "Portfolio UI preview based on daily report, NOC, verification, Chart.js reporting, and department workflow evidence.",
+      note: "Reporting preview showing daily forms, shift data, NOC workflow, verification, dashboards, and weekly/monthly summaries.",
       metrics: ["Daily forms", "Shift data", "NOC", "Reports"],
       flow: ["Capture", "Verify", "Summarize", "Export"]
     },
@@ -398,29 +398,29 @@ export const projects: Project[] = [
       "Improved visibility into NOC and production detail records"
     ],
     architecture: [
-      "Controllers include DailyReportController, DailyMixingController, DailyExtrusionController, DailyLabController, DailyPackingController, DailyPowderController, NocInputController, NocReportController, NocVerificationController, and ReportController",
-      "Models include DailyReport, DailyMixingDetail, DailyExtrusionDetail, DailyLabDetail, DailyPackingDetail, DailyPowderDetail, ShiftSchedule, MasterTarget, MixingHistory, LabSample, WorkOrder, and WorkOrderStep",
-      "Migrations cover department-level daily detail tables, shift schedules, master targets, NOC columns, lot/product fields, reject/loss material, and powder details",
-      "Chart.js dependency supports dashboard/report visualization"
+      "Reporting domain connects daily report masters, department-level details, shift schedules, master targets, lab samples, work orders, process steps, NOC records, and production history",
+      "Department workflows support mixing, extrusion, lab, packing, powder, shift selection, verification, and summary reporting",
+      "NOC workflow separates input, verified records, date-based reports, summary views, and export",
+      "Dashboard layer uses Chart.js-style visual reporting for production review"
     ],
-    evidence: [
-      "resources/views includes daily-reports, daily-mixing, daily-extrusion, daily-lab, daily-packing, daily-powder, noc-input, noc-report, noc-verification, weekly reports, and monthly reports",
-      "routes/web.php includes daily report verification, daily extrusion OEE data, NOC summary/export, and work order step detail panel",
-      "composer.json and package.json confirm Laravel 10, AdminLTE, Sanctum, Vite, and Chart.js"
+    deliveryHighlights: [
+      "Daily reporting workflow covers mixing, extrusion, lab, packing, powder, NOC input, NOC verification, weekly reports, and monthly reports",
+      "Operational review flow includes daily report verification, extrusion OEE data, NOC summaries, export, and work order step details",
+      "Built with Laravel 10, AdminLTE, Sanctum, Vite, and Chart.js for production reporting screens"
     ],
     score: 91
   },
   {
     slug: "autonomous-maintenance-daily-check",
-    sourceFolder: "kasakata_am",
+    systemKey: "autonomous-maintenance",
     title: "Autonomous Maintenance And Daily Check System",
     status: "additional",
     category: "Autonomous maintenance",
     summary:
-      "A Laravel 12 system for daily machine checks, maintenance tickets, inspections, preparation templates, approvals, photo evidence, PDF reports, and Excel exports.",
+      "A Laravel 12 system for daily machine checks, maintenance tickets, inspections, preparation templates, approvals, photo documentation, PDF reports, and Excel exports.",
     preview: {
       label: "Daily check preview",
-      note: "Portfolio UI preview based on daily checks, inspection approval, ticket, preparation, photo, PDF, and export evidence.",
+      note: "Daily-check preview showing machine inspections, maintenance handoff, approvals, photos, PDF reports, and Excel exports.",
       metrics: ["Checks", "Photos", "Approvals", "Reports"],
       flow: ["Inspect", "Document", "Approve", "Report"]
     },
@@ -442,7 +442,7 @@ export const projects: Project[] = [
       }
     ],
     businessProblem:
-      "Daily machine checks and AM activities need consistent evidence, approval flow, maintenance handoff, and reporting so issues do not stay hidden in paper records.",
+      "Daily machine checks and AM activities need consistent documentation, approval flow, maintenance handoff, and reporting so issues do not stay hidden in paper records.",
     solution:
       "Digitized daily checks, inspection flows, maintenance tickets, preparation workflow, manager approval, verification photos, and report generation.",
     features: [
@@ -454,32 +454,32 @@ export const projects: Project[] = [
     ],
     techStack: ["Laravel 12", "PHP 8.2", "Tailwind CSS 4", "DomPDF", "Maatwebsite Excel", "Yajra DataTables"],
     impact: [
-      "Improved machine check evidence and approval discipline",
+      "Improved machine check documentation and approval discipline",
       "Better visibility for autonomous maintenance follow-up",
       "Reduced paper-based inspection and preparation tracking"
     ],
     architecture: [
-      "Models include Machine, DailyCheck, DailyCheckItem, MaintenanceTicket, Inspection, Preparation, PreparationDetail, PreparationTemplate, ActivityLog, and Notification",
-      "Migrations include manager approval, checklist images, maintenance monitoring columns, verification photos, preparation system tables, product/lot fields, and manager rating"
+      "Machine-check domain connects machines, daily check items, maintenance tickets, inspections, preparation templates, activity logs, notifications, product lots, and manager approval",
+      "Preparation workflow supports product and lot tracking, verification photos, manager rating, PDF output, and operational reports"
     ],
-    evidence: [
-      "resources/views includes daily_checks, inspections, maintenance_tickets, preparations, preparation_templates, reports, and report/pdf",
-      "public/uploads/checklist_images contains uploaded checklist evidence images",
-      "composer.json confirms Laravel 12, DomPDF, Excel, and Yajra DataTables"
+    deliveryHighlights: [
+      "Daily check workflow covers inspection items, checklist images, verification images, approval steps, and maintenance ticket handoff",
+      "Preparation workflow connects templates, preparation details, product and lot tracking, reports, and PDF output",
+      "Built with Laravel 12, DomPDF, Excel exports, and DataTables for inspection and reporting workflows"
     ],
     score: 88
   },
   {
     slug: "color-change-cleaning-workflow",
-    sourceFolder: "kasakata-gw",
+    systemKey: "color-change",
     title: "Color Change Cleaning Workflow System",
     status: "additional",
     category: "Shop-floor cleaning workflow",
     summary:
-      "A Laravel 10 workflow system for machine color-change cleaning orders, operator form execution, photo evidence, manager verification, and quantity usage reports.",
+      "A Laravel 10 workflow system for machine color-change cleaning orders, operator form execution, photo documentation, manager verification, and quantity usage reports.",
     preview: {
       label: "Cleaning workflow preview",
-      note: "Portfolio UI preview based on color-change orders, operator forms, photo evidence, verification, and quantity report evidence.",
+      note: "Cleaning workflow preview showing color-change orders, operator forms, required photos, verification, and quantity usage reporting.",
       metrics: ["Orders", "Photos", "Verification", "Usage"],
       flow: ["Order", "Clean", "Verify", "Report"]
     },
@@ -496,7 +496,7 @@ export const projects: Project[] = [
       }
     ],
     businessProblem:
-      "Color-change cleaning needs standardized templates, operator execution evidence, material quantity tracking, and manager verification to prevent inconsistent handoffs.",
+      "Color-change cleaning needs standardized templates, operator execution documentation, material quantity tracking, and manager verification to prevent inconsistent handoffs.",
     solution:
       "Built a role-based cleaning workflow with perintah ganti warna, cleaning templates, form bongkar, list cleaning, photo uploads, quantity rules, and verification status.",
     features: [
@@ -509,23 +509,23 @@ export const projects: Project[] = [
     techStack: ["Laravel 10", "PHP 8.1", "Bootstrap 5", "Sass", "Vite 5", "Intervention Image", "Laravel UI"],
     impact: [
       "Standardized cleaning workflow for machine color changes",
-      "Improved evidence quality through photo-based operator submissions",
+      "Improved documentation quality through photo-based operator submissions",
       "Better verification control for cleaning completion"
     ],
     architecture: [
-      "Controllers include PerintahGantiWarnaController, TemplateCleaningController, FormBongkarController, FormBongkarReviewController, and QtyUsageReportController",
-      "Models include PerintahGantiWarna, TemplateCleaning, FormBongkar, ListCleaning, Mesin, CmbProduk, and CmbOperator"
+      "Cleaning workflow domain connects color-change orders, cleaning templates, form execution, cleaning item lists, machines, products, operators, and usage reporting",
+      "Verification flow separates admin setup, operator execution, required photo documentation, manager review, and quantity usage review"
     ],
-    evidence: [
-      "resources/views includes operator/form-bongkar, manager/form-verifikasi, admin/template-cleaning, admin/perintah, and admin/reports/qty-usage",
-      "migrations include cleaning templates, form bongkar, list cleaning, material quantity rules, required photos, and verification status",
-      "public/img/foto-cleaning contains uploaded cleaning photo evidence"
+    deliveryHighlights: [
+      "Operator workflow covers form bongkar execution, machine selection, required photos, completion flow, and manager verification",
+      "Admin workflow covers color-change orders, cleaning templates, cleaning item lists, material quantity rules, and usage reports",
+      "Built with Laravel 10, Bootstrap, image handling, and role-based screens for shop-floor cleaning control"
     ],
     score: 84
   },
   {
     slug: "mixing-method-production-input",
-    sourceFolder: "mixing",
+    systemKey: "mixing",
     title: "Mixing Method And Production Input System",
     status: "additional",
     category: "Mixing process control",
@@ -533,7 +533,7 @@ export const projects: Project[] = [
       "A Laravel 12 system for mixing methods, operator mixing views, SPK and lot input history, resin classification, PDF method files, and Excel history exports.",
     preview: {
       label: "Mixing method preview",
-      note: "Portfolio UI preview based on method search, operator pages, SPK/lot history, PDF views, and Excel export evidence.",
+      note: "Mixing method preview showing method search, operator input, SPK/lot history, PDF references, and Excel exports.",
       metrics: ["Methods", "SPK", "Lots", "PDF refs"],
       flow: ["Search", "Input", "Review", "Export"]
     },
@@ -567,14 +567,14 @@ export const projects: Project[] = [
       "Reduced manual lookup through searchable history and PDF references"
     ],
     architecture: [
-      "Controllers include MixingController, MixingMethodController, op_mixingController, BahanController, GranulController, and MetodeController",
-      "Models include MixingInput, MixingMethod, MixingMethod_khusus, MixingParameter, SearchHistory, Granul, bahan, powder, Produk, and User",
-      "AllHistoryMethodeService combines mixing input and search history data for reporting"
+      "Mixing domain connects input records, method masters, special methods, mixing parameters, search history, materials, granules, powder, products, and users",
+      "Operator workflow separates method access, SPK/lot input history, PDF references, and production input review",
+      "Reporting service combines mixing input and search history data for exportable method history"
     ],
-    evidence: [
-      "resources/views includes mixing/search, mixing/input-history, mixing/all-history, mixing-methods, operator_mixing, bahan/pdf-view, and granul/pdf-view pages",
-      "migrations include mixing_inputs, signed_by, method signatures, remarks, and production_schedules",
-      "composer.json confirms Laravel 12, Excel, and Yajra DataTables"
+    deliveryHighlights: [
+      "Mixing workflow covers method search, input history, all-history review, operator pages, material PDF views, and granule PDF views",
+      "Production input records track SPK, product, lot, method number, resin, remarks, signatures, PDF files, and schedules",
+      "Built with Laravel 12, Excel exports, and DataTables for searchable production method records"
     ],
     score: 82
   }
@@ -586,7 +586,7 @@ export const additionalProjects = projects.filter((project) => project.status ==
 export const skills = [
   {
     name: "Laravel / PHP",
-    context: "Verified across all eight audited systems, spanning Laravel 10 and Laravel 12 applications."
+    context: "Built internal operations applications across Laravel 10 and Laravel 12, with role-based workflows, dashboards, exports, and integrations."
   },
   {
     name: "Manufacturing Systems",
@@ -594,11 +594,11 @@ export const skills = [
   },
   {
     name: "MySQL Data Modeling",
-    context: "Migrations model work orders, OEE reports, PM checks, tickets, samples, daily reports, inspections, preparations, SPK, lots, and production schedules."
+    context: "Designed relational structures for work orders, OEE reports, PM checks, tickets, samples, daily reports, inspections, preparations, SPK, lots, and production schedules."
   },
   {
     name: "Dashboard Analytics",
-    context: "Evidence appears in OEE analysis, PDR reports, CMB QC/machine monitoring, K-Maint monitoring, and Lab QC monitoring."
+    context: "Delivered monitoring and analysis views for OEE, daily production reports, CMB QC/machine monitoring, K-Maint monitoring, and Lab QC queues."
   },
   {
     name: "Workflow Digitalization",
@@ -606,7 +606,7 @@ export const skills = [
   },
   {
     name: "Traceability And Lot Tracking",
-    context: "Validated in CMB traceability/lead time/output tracking, OEE SPK lookup, Mixing SPK/lot history, and PDR lot/product reporting."
+    context: "Implemented traceability flows across CMB lead time/output tracking, OEE SPK lookup, Mixing SPK/lot history, and PDR lot/product reporting."
   },
   {
     name: "Reporting And Export",
@@ -629,29 +629,29 @@ export const impactMetrics = [
   "Faster lab sample queue coordination and assignment",
   "Reduced manual daily reporting consolidation",
   "Improved traceability across work orders, SPK, lots, samples, and process steps",
-  "Better evidence capture through photos, approvals, exports, and history logs",
+  "Better operational documentation through photos, approvals, exports, and history logs",
   "Stronger decision support for supervisors, QC, PPIC, maintenance, and production teams"
 ];
 
 export const timeline = [
   {
-    phase: "Discovery",
-    title: "Audited real Laravel systems",
-    detail: "Scanned eight manufacturing and operations applications across routes, controllers, models, migrations, views, services, exports, commands, and public assets."
+    phase: "Systems",
+    title: "Built internal manufacturing applications",
+    detail: "Developed operational systems across production execution, OEE monitoring, maintenance workflows, lab dispatch, daily reporting, color-change cleaning, and mixing process control."
   },
   {
-    phase: "Positioning",
-    title: "Selected strongest portfolio evidence",
-    detail: "Promoted CMB, OEE, K-Maint, Lab Dispatch, and PDR as featured case studies, with AM, GW, and Mixing supporting the wider internal-systems story."
+    phase: "Operations",
+    title: "Focused on workflow visibility",
+    detail: "Designed tools that help teams track work orders, samples, tickets, machine checks, lots, approvals, reports, and production follow-up from one shared operational view."
   },
   {
-    phase: "Content",
-    title: "Converted code evidence into business case studies",
-    detail: "Mapped each system to operational problems, workflow value, architecture highlights, qualitative impact, and evidence notes without unsupported percentage claims."
+    phase: "Dashboards",
+    title: "Created decision-support views",
+    detail: "Built dashboards, monitoring boards, exportable reports, and analysis pages for supervisors, QC, PPIC, maintenance, technicians, operators, and production leaders."
   },
   {
-    phase: "Visuals",
-    title: "Added honest UI preview galleries",
-    detail: "Added real local application screenshots across CMB, OEE, K-Maint, Lab Dispatch, PDR, AM, Color Change, and Mixing case studies."
+    phase: "Impact",
+    title: "Improved operational discipline",
+    detail: "Standardized daily reporting, ticket follow-up, lab queues, PM execution, traceability, approval flows, and production documentation across internal teams."
   }
 ];

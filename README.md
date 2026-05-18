@@ -1,7 +1,10 @@
-<<<<<<< HEAD
-# RidBar Portofolio
+# Muhammad Ridha Akbar Portfolio
 
-Professional portfolio website for manufacturing systems, production monitoring, maintenance workflows, lab dispatch, and internal enterprise applications.
+Professional portfolio website for manufacturing systems, production monitoring, maintenance workflows, lab dispatch, reporting, traceability, and internal enterprise applications.
+
+## Positioning
+
+This portfolio presents internal operational systems built for manufacturing and process-focused teams. The case studies focus on business problems, workflow design, dashboard engineering, automation, traceability, reporting, and operational impact.
 
 ## Stack
 
@@ -40,20 +43,9 @@ http://localhost:3000
 - `/resume`
 - `/contact`
 
-## Audit Note
+## Content Principles
 
-The content is based on `portfolio-project-audit.md`, which scanned the real Laravel project folders and mapped evidence from package files, routes, controllers, models, migrations, views, services, exports, commands, and assets.
-
-Project cards and case-study pages include portfolio-generated UI previews. These are visual previews based on the audit evidence, not captured screenshots from production applications.
-
-When new screenshots or operational metrics are available, update:
-
-- `portfolio-project-audit.md`
-- `portfolio-content-plan.md`
-- `data/projects.ts`
-- `public/ridbar-resume.md`
-
-Do not add fake percentage metrics. Keep impact language qualitative unless real before/after measurements are available.
-=======
-# Ridbar-Portofolio
->>>>>>> a52f02ad6d91d8ea1623f9eaef715338f764c931
+- Lead with operational problems and working systems.
+- Keep impact language credible and qualitative unless real before-and-after metrics are available.
+- Emphasize production visibility, workflow optimization, traceability, automation, reporting, and decision support.
+- Avoid unsupported percentage claims.

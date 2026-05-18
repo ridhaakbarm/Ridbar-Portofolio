@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BarChart3, Cpu, Factory, Gauge, GitBranch, ShieldCheck } from "lucide-react";
+import { ArrowRight, BarChart3, Cpu, Factory, Gauge, ShieldCheck, Workflow } from "lucide-react";
 import { Header } from "@/components/Header";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -36,7 +36,7 @@ export default function Home() {
           <div className="rounded-lg border border-line/15 bg-ink p-5 text-white shadow-soft">
             <div className="grid grid-cols-2 gap-3">
               {[
-                ["Scanned targets", `${projects.length}`],
+                ["Systems built", `${projects.length}`],
                 ["Featured systems", `${featuredProjects.length}`],
                 ["Candidate profile", "Industrial Engineering"],
                 ["Career direction", "Operations Leader"]
@@ -65,7 +65,7 @@ export default function Home() {
         <SectionTitle
           eyebrow="Featured work"
           title="Internal systems for operational teams"
-          description="Verified case studies from real Laravel systems built for production execution, OEE monitoring, maintenance, lab dispatch, and daily reporting workflows."
+          description="Case studies from internal systems built for production execution, OEE monitoring, maintenance, lab dispatch, daily reporting, and operational decision support."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project) => (
@@ -78,7 +78,7 @@ export default function Home() {
         <SectionTitle
           eyebrow="Additional systems"
           title="Supporting operational applications"
-          description="These projects strengthen the portfolio story with autonomous maintenance, cleaning workflow, and mixing process control evidence."
+          description="Supporting systems for autonomous maintenance, color-change cleaning workflows, mixing process control, and shop-floor documentation."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {additionalProjects.map((project) => (
@@ -90,9 +90,9 @@ export default function Home() {
       <section id="skills" className="border-y border-line/10 bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20">
           <SectionTitle
-            eyebrow="Skill mapping"
+            eyebrow="Engineering capability"
             title="Engineering capability mapped to manufacturing use cases"
-            description="Skills are mapped from routes, controllers, models, migrations, views, services, exports, commands, and package evidence found in the audited codebases."
+            description="Capabilities shaped through operational systems that combine workflow design, dashboard engineering, data modeling, reporting, traceability, and automation."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {skills.map((skill) => (
@@ -113,7 +113,7 @@ export default function Home() {
           <SectionTitle
             eyebrow="Operational impact"
             title="Business language, not just stack language"
-            description="Impact statements stay qualitative because the source audit verifies system capability, while exact before-and-after numbers need operational measurement data."
+            description="The portfolio focuses on practical operational improvements: visibility, standardization, faster follow-up, cleaner reporting, and better decision support."
           />
           <div className="grid gap-3 sm:grid-cols-2">
             {impactMetrics.map((metric) => (
@@ -129,9 +129,9 @@ export default function Home() {
       <section className="border-y border-line/10 bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20">
           <SectionTitle
-            eyebrow="Project timeline"
-            title="From source audit to portfolio case studies"
-            description="The portfolio is built from real code evidence first, then translated into business-oriented presentation for manufacturing and operations audiences."
+            eyebrow="Delivery approach"
+            title="From operational problems to working systems"
+            description="Each project starts from a workflow problem and turns it into dashboards, forms, approvals, exports, automation, and traceability for daily operations."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {timeline.map((item) => (
@@ -150,7 +150,7 @@ export default function Home() {
           {[
             { icon: Factory, title: "Manufacturing-first", text: "Built around production, lab, maintenance, QC, and process execution systems." },
             { icon: BarChart3, title: "Dashboard-oriented", text: "Designed around monitoring boards, reports, exports, and operational decision support." },
-            { icon: GitBranch, title: "Evidence-based", text: "Portfolio content is grounded in actual routes, controllers, models, migrations, views, and package files." }
+            { icon: Workflow, title: "Workflow-driven", text: "Focused on approvals, queues, tickets, traceability, handoffs, and follow-up across operational teams." }
           ].map((item) => (
             <div key={item.title} className="rounded-lg border border-white/10 bg-white/5 p-5">
               <item.icon className="text-signal" size={22} />

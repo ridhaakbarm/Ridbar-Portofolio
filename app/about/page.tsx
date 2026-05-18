@@ -13,7 +13,7 @@ const focusAreas = [
   {
     icon: Workflow,
     title: "Internal Application Engineering",
-    text: "Role-based Laravel applications with approvals, tickets, queues, exports, traceability, and operational evidence capture."
+    text: "Role-based Laravel applications with approvals, tickets, queues, exports, traceability, and operational documentation."
   },
   {
     icon: Gauge,
@@ -49,9 +49,9 @@ export default function AboutPage() {
           <div className="rounded-lg border border-line/15 bg-white p-6 shadow-sm md:p-8">
             <h2 className="text-2xl font-black text-ink">Professional Positioning</h2>
             <p className="mt-4 text-sm leading-7 text-steel">
-              {profile.summary} The strongest portfolio evidence comes from production monitoring,
-              maintenance, QC lab dispatch, daily reporting, traceability, approval, export, and automation
-              workflows found in the audited project folders.
+              {profile.summary} The portfolio is centered on production monitoring, maintenance,
+              QC lab dispatch, daily reporting, traceability, approval flows, exports, automation,
+              and workflow tools for operational teams.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {skills.slice(0, 6).map((skill) => (
@@ -86,9 +86,9 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-5 py-16">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <SectionTitle
-            eyebrow="Working evidence"
-            title="A portfolio assembled from source-code audit"
-            description="Every case study keeps a visible evidence trail so the portfolio stays credible and can be strengthened later with screenshots, credentials-safe visuals, and real operational metrics."
+            eyebrow="Engineering showcase"
+            title="Systems built for daily operational work"
+            description="The case studies highlight practical systems for manufacturing teams: dashboards, queues, tickets, approvals, exports, reports, and traceability across real workflows."
           />
           <div className="grid gap-4">
             {timeline.map((item) => (

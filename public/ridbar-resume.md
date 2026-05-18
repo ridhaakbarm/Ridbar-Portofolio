@@ -5,7 +5,7 @@ Industrial Engineering Fresh Graduate
 Email: ridhaakbarm@gmail.com  
 LinkedIn: https://www.linkedin.com/in/ridhaakbar
 
-Fresh Graduate in Industrial Engineering focused on operations, process optimization, and data-driven decision making. Portfolio evidence includes internal systems for production monitoring, maintenance workflows, QC lab dispatch, reporting, traceability, and manufacturing digitalization.
+Fresh Graduate in Industrial Engineering focused on operations, process optimization, and data-driven decision making. Portfolio work includes internal systems for production monitoring, maintenance workflows, QC lab dispatch, reporting, traceability, and manufacturing digitalization.
 
 ## Profile
 
@@ -53,7 +53,7 @@ Laravel 10 system for daily reports across mixing, extrusion, lab, packing, powd
 
 - Laravel 10 / Laravel 12
 - PHP 8.1 / PHP 8.2
-- MySQL-style relational modeling through migrations
+- MySQL-style relational modeling for operational workflows
 - Tailwind CSS, Bootstrap, AdminLTE, Blade, Vite
 - Dashboard analytics and reporting
 - Excel export with Maatwebsite Excel

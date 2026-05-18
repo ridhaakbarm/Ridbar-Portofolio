@@ -14,10 +14,10 @@ export function ProjectVisual({ project, compact = false }: ProjectVisualProps) 
       <div className="overflow-hidden rounded-lg border border-line/15 bg-white shadow-sm">
         <div className="flex items-center justify-between gap-4 border-b border-line/10 px-4 py-3">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-signal">Real application screenshot</p>
-            {!compact && <p className="mt-1 text-xs text-steel">{primary.label} captured from local project runtime</p>}
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-signal">Operational interface</p>
+            {!compact && <p className="mt-1 text-xs text-steel">{primary.label}</p>}
           </div>
-          <span className="rounded-md bg-cloud px-2.5 py-1 text-[11px] font-bold text-ink">{project.sourceFolder}</span>
+          <span className="rounded-md bg-cloud px-2.5 py-1 text-[11px] font-bold text-ink">{project.category}</span>
         </div>
 
         <div className={compact ? "p-3" : "p-5"}>
@@ -47,7 +47,7 @@ export function ProjectVisual({ project, compact = false }: ProjectVisualProps) 
                 ))}
               </div>
               <p className="mt-4 text-xs leading-5 text-steel">
-                Screenshots were captured from local Laravel runtimes using the available local databases and safe portfolio routes.
+                Interface examples show the operational workflows, dashboard views, and reporting screens used across the system.
               </p>
             </>
           )}
@@ -64,7 +64,7 @@ export function ProjectVisual({ project, compact = false }: ProjectVisualProps) 
       <div className="flex items-center justify-between border-b border-white/10 bg-white/5 px-4 py-3">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-signal">{project.preview.label}</p>
-          {!compact && <p className="mt-1 text-xs text-white/45">{project.sourceFolder}</p>}
+          {!compact && <p className="mt-1 text-xs text-white/45">{project.category}</p>}
         </div>
         <div className="flex items-center gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-signal" />

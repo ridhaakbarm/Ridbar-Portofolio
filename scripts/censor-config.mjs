@@ -16,82 +16,54 @@ export const censorConfig = [
   // CMB Manufacturing Execution
   // ─────────────────────────────────────────────
   {
+    // Image: 1880x995 – SPK WO Monitoring Board
+    // Sensitive columns: Produk Name, Lot Number, Qty, Operator
     filename: "cmb-spk-wo-monitoring.png",
     regions: [
-      // Table data rows – Nama Produk column
-      { x: 0.315, y: 0.617, w: 0.060, h: 0.200, type: "blur" },
-      // Table data rows – Lot Number column
-      { x: 0.365, y: 0.617, w: 0.053, h: 0.200, type: "blur" },
-      // Table data rows – Qty column
-      { x: 0.411, y: 0.617, w: 0.025, h: 0.200, type: "blur" },
-      // Table data rows – Operator column (IHSAN)
-      { x: 0.485, y: 0.617, w: 0.060, h: 0.200, type: "blur" },
+      // Big blur over the data columns: from column headers to bottom
+      // Covers: Tahapan, Produk, Lot, Qty, Mesin, Operator
+      { x: 0.270, y: 0.590, w: 0.450, h: 0.260, type: "blur" },
     ]
   },
   {
+    // Image: 1885x1002 – SPK Detail (Tahapan table, 7 rows)
+    // Need to cover: Produk, Mesin, Lot Number, Qty, Operator for ALL 7 rows
     filename: "cmb-spk-detail.png",
     regions: [
-      // Produk column (KASATHYLEN VIOLET FC4351...)
-      { x: 0.229, y: 0.280, w: 0.125, h: 0.510, type: "blur" },
-      // Mesin column (HENSCHELL, MIXER, CC 40 B, TIMBANGAN)
-      { x: 0.352, y: 0.280, w: 0.115, h: 0.510, type: "blur" },
-      // Lot Number column
-      { x: 0.460, y: 0.280, w: 0.065, h: 0.510, type: "blur" },
-      // Qty column
-      { x: 0.525, y: 0.280, w: 0.032, h: 0.510, type: "blur" },
-      // Operator column (IHSAN, DEDI KURNIA, WAWAN SETIAWAN, YUDI HERMAWAN, DIKA MAULANA)
-      { x: 0.610, y: 0.280, w: 0.100, h: 0.510, type: "blur" },
+      // One big region covering all sensitive columns from row 1 to row 7
+      // From Produk column start to Operator column end
+      { x: 0.190, y: 0.210, w: 0.700, h: 0.520, type: "blur" },
     ]
   },
   {
+    // Image: 1884x1009 – Production Schedule
     filename: "cmb-schedule.png",
     regions: [
       // Product names in complain banner at top
-      { x: 0.145, y: 0.078, w: 0.630, h: 0.085, type: "blur" },
-      // Product names in schedule cards (row 1)
-      { x: 0.228, y: 0.462, w: 0.580, h: 0.175, type: "blur" },
-      // Product names in schedule cards (row 2)
-      { x: 0.228, y: 0.741, w: 0.580, h: 0.060, type: "blur" },
+      { x: 0.145, y: 0.060, w: 0.650, h: 0.100, type: "blur" },
+      // Product names in schedule cards (both rows)
+      { x: 0.220, y: 0.440, w: 0.600, h: 0.360, type: "blur" },
     ]
   },
   {
+    // Image: 1870x1000 – Output Tracking
+    // Sensitive: Produk, Lot, Mesin, Qty, PIC columns
     filename: "cmb-output-tracking.png",
     regions: [
-      // Total qty metrics at top (4 stat boxes)
-      { x: 0.443, y: 0.085, w: 0.560, h: 0.085, type: "blur" },
-      // Data table – Produk column
-      { x: 0.242, y: 0.470, w: 0.065, h: 0.350, type: "blur" },
-      // Data table – Lot Number column
-      { x: 0.303, y: 0.470, w: 0.060, h: 0.350, type: "blur" },
-      // Data table – Mesin column
-      { x: 0.359, y: 0.470, w: 0.050, h: 0.350, type: "blur" },
-      // Data table – Qty (kg) column
-      { x: 0.452, y: 0.470, w: 0.035, h: 0.350, type: "blur" },
-      // Data table – PIC Granule column (farid)
-      { x: 0.698, y: 0.470, w: 0.055, h: 0.350, type: "blur" },
+      // Total qty metrics bar at top
+      { x: 0.430, y: 0.060, w: 0.570, h: 0.110, type: "blur" },
+      // Entire data table area covering sensitive columns
+      { x: 0.230, y: 0.390, w: 0.650, h: 0.430, type: "blur" },
     ]
   },
   {
+    // Image: 1904x1060 – Machine Monitoring (card layout)
     filename: "cmb-machine-monitoring-real.png",
     regions: [
-      // Row 2 running machines – product names, lot numbers, qty, operator
-      // HES 90 card
-      { x: 0.006, y: 0.360, w: 0.188, h: 0.180, type: "blur" },
-      // LSM card
-      { x: 0.200, y: 0.360, w: 0.188, h: 0.180, type: "blur" },
-      // STS 50 B card
-      { x: 0.590, y: 0.360, w: 0.188, h: 0.180, type: "blur" },
-      // CC 40 A card
-      { x: 0.785, y: 0.415, w: 0.210, h: 0.130, type: "blur" },
-      // Row 3 – cards with product info
-      // CC 40 B card
-      { x: 0.006, y: 0.620, w: 0.188, h: 0.150, type: "blur" },
-      // CC 40 C card
-      { x: 0.200, y: 0.620, w: 0.188, h: 0.150, type: "blur" },
-      // KTE 36 B1 card
-      { x: 0.395, y: 0.620, w: 0.188, h: 0.150, type: "blur" },
-      // KTE 36 B2 card
-      { x: 0.590, y: 0.580, w: 0.188, h: 0.200, type: "blur" },
+      // Row 2 – all 4 machine cards data
+      { x: 0.006, y: 0.340, w: 0.995, h: 0.220, type: "blur" },
+      // Row 3 – all machine cards data
+      { x: 0.006, y: 0.570, w: 0.995, h: 0.220, type: "blur" },
     ]
   },
 
@@ -115,18 +87,11 @@ export const censorConfig = [
   // K-Maint Maintenance
   // ─────────────────────────────────────────────
   {
+    // Image: 1873x1002 – Ticket Monitoring (Kanban board)
     filename: "kmaint-ticket-monitoring-real.png",
     regions: [
-      // Open column – ticket content with person names
-      { x: 0.155, y: 0.190, w: 0.125, h: 0.620, type: "blur" },
-      // Assigned column
-      { x: 0.290, y: 0.190, w: 0.125, h: 0.620, type: "blur" },
-      // Pending column
-      { x: 0.420, y: 0.190, w: 0.125, h: 0.620, type: "blur" },
-      // Request to Close column
-      { x: 0.555, y: 0.190, w: 0.125, h: 0.620, type: "blur" },
-      // Closed column – machine names + person names (Gunawan, Joko Sarwono etc)
-      { x: 0.685, y: 0.190, w: 0.315, h: 0.620, type: "blur" },
+      // All kanban columns content area (names, ticket details)
+      { x: 0.140, y: 0.180, w: 0.860, h: 0.640, type: "blur" },
     ]
   },
   {
@@ -138,10 +103,11 @@ export const censorConfig = [
     regions: []
   },
   {
+    // Image: 1878x1000
     filename: "kmaint-preventive-maintenance.png",
     regions: [
-      // Machine name in header (LODIGE MIXER 3000 L)
-      { x: 0.146, y: 0.160, w: 0.145, h: 0.028, type: "blur" },
+      // Machine name in header
+      { x: 0.130, y: 0.145, w: 0.170, h: 0.045, type: "blur" },
     ]
   },
 
@@ -149,25 +115,23 @@ export const censorConfig = [
   // Lab Dispatch QC
   // ─────────────────────────────────────────────
   {
+    // Image: 1878x994 – QC Dashboard (Kanban board)
     filename: "lab-dispatch-qc-dashboard-real.png",
     regions: [
-      // In Progress Incoming column – sample names, lot numbers, operator names
-      { x: 0.306, y: 0.190, w: 0.143, h: 0.620, type: "blur" },
-      // In Progress Pss Alternatif column
-      { x: 0.477, y: 0.190, w: 0.143, h: 0.620, type: "blur" },
-      // In Progress Complain column – product name, lot
-      { x: 0.636, y: 0.190, w: 0.160, h: 0.620, type: "blur" },
+      // All kanban card content columns
+      { x: 0.290, y: 0.135, w: 0.520, h: 0.680, type: "blur" },
     ]
   },
   {
+    // Image: 1884x954
     filename: "lab-dispatch-sample-report.png",
     regions: [
-      // Left sidebar product names list (KASATHYLEN VIOLET, KASALEN GREEN, KASALEN YELLOW, etc.)
-      { x: 0.128, y: 0.270, w: 0.150, h: 0.560, type: "blur" },
-      // Modal – Nama Mesin value (LSM)
-      { x: 0.400, y: 0.165, w: 0.115, h: 0.025, type: "blur" },
-      // Bottom table row with product name, lot, operator name (Ilham M)
-      { x: 0.197, y: 0.785, w: 0.340, h: 0.030, type: "blur" },
+      // Left sidebar product names list
+      { x: 0.120, y: 0.250, w: 0.165, h: 0.580, type: "blur" },
+      // Modal area – product info
+      { x: 0.380, y: 0.140, w: 0.280, h: 0.055, type: "blur" },
+      // Bottom table row with product, lot, operator
+      { x: 0.190, y: 0.770, w: 0.360, h: 0.050, type: "blur" },
     ]
   },
   {
@@ -179,10 +143,11 @@ export const censorConfig = [
     regions: []
   },
   {
+    // Image: 1910x1047
     filename: "lab-dispatch-qc-sample.png",
     regions: [
-      // Sample data row – product name (KASALEN YELLOW) + lot number + batch
-      { x: 0.290, y: 0.686, w: 0.400, h: 0.085, type: "blur" },
+      // Sample data row
+      { x: 0.270, y: 0.670, w: 0.430, h: 0.100, type: "blur" },
     ]
   },
 
@@ -190,12 +155,11 @@ export const censorConfig = [
   // Production Daily Reporting
   // ─────────────────────────────────────────────
   {
+    // Image: 1880x996
     filename: "pdr-extrusion-report.png",
     regions: [
-      // Leaderboard names section on right (Sukimin, Zein, Lutfi)
-      { x: 0.524, y: 0.072, w: 0.270, h: 0.175, type: "blur" },
-      // Leaderboard bar chart with operator names
-      { x: 0.524, y: 0.345, w: 0.270, h: 0.370, type: "blur" },
+      // Entire right panel – leaderboard names + chart
+      { x: 0.510, y: 0.050, w: 0.490, h: 0.690, type: "blur" },
     ]
   },
   {
@@ -215,12 +179,12 @@ export const censorConfig = [
     regions: []
   },
   {
+    // Image: 1891x990 – Form History table
+    // Sensitive: Produk & Lot, Operator columns
     filename: "am-form-history.png",
     regions: [
-      // Produk & Lot column (KASALEN VIOLET FC4207, KASALEN FL PINK, KASALEN BLUE etc.)
-      { x: 0.302, y: 0.350, w: 0.115, h: 0.455, type: "blur" },
-      // Operator column (Dedi Kurnia, Muhamad Rinaldi, Yuliawan, Feri, Suharto)
-      { x: 0.475, y: 0.350, w: 0.070, h: 0.455, type: "blur" },
+      // Produk & Lot + Tanggal + Operator columns combined
+      { x: 0.300, y: 0.300, w: 0.450, h: 0.530, type: "blur" },
     ]
   },
 
@@ -232,16 +196,15 @@ export const censorConfig = [
     regions: []
   },
   {
+    // Image: 1896x989 – GW Execution form
     filename: "gw-execution.png",
     regions: [
-      // Produk Awal – product name + lot (KASALEN BLUE FC5688² | NT17613K14W)
-      { x: 0.123, y: 0.262, w: 0.230, h: 0.032, type: "blur" },
-      // Produk Akhir – product name + lot (KASALEN BLUE FC5151² | NT17401G00)
-      { x: 0.350, y: 0.262, w: 0.205, h: 0.032, type: "blur" },
-      // Operator name (ABDUL RAHMAN)
-      { x: 0.460, y: 0.358, w: 0.150, h: 0.028, type: "blur" },
-      // Nama Operator in table at bottom (ABDUL RAHMAN)
-      { x: 0.615, y: 0.775, w: 0.075, h: 0.030, type: "blur" },
+      // Produk Awal + Produk Akhir fields area (both products in one region)
+      { x: 0.115, y: 0.240, w: 0.550, h: 0.065, type: "blur" },
+      // Operator field (ABDUL RAHMAN)
+      { x: 0.450, y: 0.340, w: 0.250, h: 0.055, type: "blur" },
+      // Bottom table NAMA OPERATOR cell
+      { x: 0.600, y: 0.760, w: 0.250, h: 0.050, type: "blur" },
     ]
   },
 
@@ -253,16 +216,11 @@ export const censorConfig = [
     regions: []
   },
   {
+    // Image: 1885x1007 – Method Report table
     filename: "mixing-method-report.png",
     regions: [
-      // No SPK column
-      { x: 0.223, y: 0.445, w: 0.065, h: 0.370, type: "blur" },
-      // Nama Produk column (KASATHYLEN YELLOW, KASALEN YELLOW)
-      { x: 0.284, y: 0.445, w: 0.095, h: 0.370, type: "blur" },
-      // Lot Number column
-      { x: 0.380, y: 0.445, w: 0.062, h: 0.370, type: "blur" },
-      // Remark column (contains material composition info)
-      { x: 0.460, y: 0.445, w: 0.310, h: 0.370, type: "blur" },
+      // SPK + Produk + Lot + Remark columns (wide combined)
+      { x: 0.215, y: 0.430, w: 0.560, h: 0.400, type: "blur" },
     ]
   },
 ];

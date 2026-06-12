@@ -98,10 +98,23 @@ async function censorImage(config) {
           }
         }).png().toBuffer();
       } else {
-        // Gaussian blur of the region
-        overlay = await sharp(sourceBuffer)
+        // Pixelation effect (mosaic) – much faster and better at hiding text than Gaussian blur
+        const pixelSize = 12; // 12x12 blocks
+        const wDown = Math.max(1, Math.round(clamped.width / pixelSize));
+        const hDown = Math.max(1, Math.round(clamped.height / pixelSize));
+        
+        const extractedMeta = await sharp(sourceBuffer).metadata();
+        const channels = extractedMeta.channels || 4;
+
+        let smallBuffer = await sharp(sourceBuffer)
           .extract({ left: clamped.x, top: clamped.y, width: clamped.width, height: clamped.height })
-          .blur(BLUR_SIGMA)
+          .resize(wDown, hDown, { kernel: 'nearest' })
+          .raw()
+          .toBuffer();
+          
+        overlay = await sharp(smallBuffer, { raw: { width: wDown, height: hDown, channels } })
+          .resize(clamped.width, clamped.height, { kernel: 'nearest' })
+          .png()
           .toBuffer();
       }
 

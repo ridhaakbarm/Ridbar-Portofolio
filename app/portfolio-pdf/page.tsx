@@ -1,16 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Mail, MapPin, Printer } from "lucide-react";
 import { PdfDownloadButton } from "@/components/PdfDownloadButton";
 import { featuredProjects, impactMetrics, skills } from "@/data/projects";
 import { profile } from "@/data/profile";
 
 export const metadata = {
-  title: "Recruiter Portfolio PDF | Muhammad Ridha Akbar",
+  title: "Portfolio PDF | Muhammad Ridha Akbar",
   description:
-    "Printable recruiter portfolio PDF for Muhammad Ridha Akbar, covering profile, capability summary, and five selected operations systems."
+    "Printable portfolio PDF for Muhammad Ridha Akbar, covering profile, capability summary, screenshots, and selected operations systems."
 };
 
-const recruiterProjects = featuredProjects.slice(0, 5);
+const selectedProjects = featuredProjects.slice(0, 5);
 
 export default function PortfolioPdfPage() {
   return (
@@ -30,7 +31,7 @@ export default function PortfolioPdfPage() {
         <section className="border-b-4 border-ink pb-6">
           <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-signal">Recruiter portfolio</p>
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-signal">Portfolio summary</p>
               <h1 className="mt-3 text-4xl font-black tracking-tight text-ink print:text-3xl">{profile.name}</h1>
               <p className="mt-2 text-lg font-black text-steel">{profile.title}</p>
               <p className="mt-1 text-sm font-bold text-ink/75">{profile.roleFocus}</p>
@@ -52,7 +53,7 @@ export default function PortfolioPdfPage() {
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             {[
               ["Portfolio focus", "Manufacturing operations systems"],
-              ["Featured systems", `${recruiterProjects.length} case studies`],
+              ["Featured systems", `${selectedProjects.length} operational systems`],
               ["Availability", "Open for operational roles"]
             ].map(([label, value]) => (
               <div key={label} className="rounded-md border border-line/15 bg-cloud p-3 print:bg-white">
@@ -67,8 +68,8 @@ export default function PortfolioPdfPage() {
           <div>
             <h2 className="text-xl font-black text-ink">Professional Summary</h2>
             <p className="mt-3 text-sm leading-6 text-steel">
-              {profile.summary} This portfolio is positioned for recruiters who need to quickly see
-              practical system delivery, operational thinking, and manufacturing workflow understanding.
+              {profile.summary} The selected work below shows practical system delivery, operational
+              thinking, and manufacturing workflow understanding through real dashboard and workflow screens.
             </p>
           </div>
           <div>
@@ -98,8 +99,8 @@ export default function PortfolioPdfPage() {
         <section className="py-6">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-signal">Selected project evidence</p>
-              <h2 className="mt-2 text-2xl font-black text-ink">5 Recruiter-Ready Case Studies</h2>
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-signal">Selected system evidence</p>
+              <h2 className="mt-2 text-2xl font-black text-ink">Featured Operations Systems</h2>
             </div>
             <div className="hidden items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-steel print:flex">
               <Printer size={14} />
@@ -108,7 +109,7 @@ export default function PortfolioPdfPage() {
           </div>
 
           <div className="mt-5 grid gap-5">
-            {recruiterProjects.map((project, index) => (
+            {selectedProjects.map((project, index) => (
               <article key={project.slug} className="break-inside-avoid rounded-lg border border-line/15 p-5 print:rounded-none">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div>
@@ -122,6 +123,25 @@ export default function PortfolioPdfPage() {
                     {project.score}
                   </div>
                 </div>
+
+                {project.screenshots && project.screenshots.length > 0 ? (
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {project.screenshots.slice(0, 2).map((screenshot) => (
+                      <figure key={screenshot.src} className="overflow-hidden rounded-md border border-line/15 bg-cloud print:bg-white">
+                        <Image
+                          src={screenshot.src}
+                          alt={screenshot.alt}
+                          width={520}
+                          height={292}
+                          className="h-40 w-full object-cover object-top print:h-32"
+                        />
+                        <figcaption className="border-t border-line/10 px-3 py-2 text-[11px] font-bold text-steel">
+                          {screenshot.label}
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                ) : null}
 
                 <div className="mt-4 grid gap-3 md:grid-cols-3">
                   <div>

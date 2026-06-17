@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FileDown } from "lucide-react";
+import { Download } from "lucide-react";
 import { profile } from "@/data/profile";
 
 const nav = [
@@ -28,11 +28,11 @@ export function Header() {
           ))}
         </nav>
         <Link
-          href={profile.resumePath}
+          href="/portfolio-pdf"
           className="inline-flex items-center gap-2 rounded-md border border-line/20 bg-white px-3 py-2 text-sm font-semibold text-ink shadow-sm transition hover:border-signal"
         >
-          <FileDown size={16} />
-          Resume
+          <Download size={16} />
+          PDF
         </Link>
       </div>
     </header>

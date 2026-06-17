@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BarChart3, Cpu, Factory, Gauge, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowRight, BarChart3, Cpu, Download, Factory, Gauge, ShieldCheck, Workflow } from "lucide-react";
 import { Header } from "@/components/Header";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionTitle } from "@/components/SectionTitle";
@@ -29,6 +29,10 @@ export default function Home() {
               </Link>
               <Link href="/contact" className="inline-flex items-center gap-2 rounded-md border border-line/20 bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-signal">
                 Contact
+              </Link>
+              <Link href="/portfolio-pdf" className="inline-flex items-center gap-2 rounded-md border border-line/20 bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-signal">
+                <Download size={17} />
+                Portfolio PDF
               </Link>
             </div>
           </div>

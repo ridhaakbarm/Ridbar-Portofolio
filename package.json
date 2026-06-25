@@ -11,6 +11,7 @@
     "censor:dry": "node scripts/censor-screenshots.mjs --dry-run"
   },
   "dependencies": {
+    "framer-motion": "^12.41.0",
     "lucide-react": "0.468.0",
     "next": "14.2.5",
     "react": "18.3.1",

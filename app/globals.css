@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  background: #eef3f5;
+  color-scheme: dark;
+  background: #0a0a0a;
 }
 
 * {
@@ -17,18 +17,89 @@ html {
 
 body {
   margin: 0;
-  background: #eef3f5;
-  color: #101418;
+  background:
+    radial-gradient(circle at 72% 10%, rgba(220, 38, 38, 0.1), transparent 28rem),
+    linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+  color: #e8e4e0;
+  font-family: var(--font-body), Inter, sans-serif;
+  text-rendering: geometricPrecision;
 }
 
 ::selection {
-  background: #23c6a5;
-  color: #101418;
+  background: #dc2626;
+  color: #f5f2ee;
 }
 
 .grid-lines {
   background-image:
-    linear-gradient(rgba(96, 113, 127, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(96, 113, 127, 0.14) 1px, transparent 1px);
-  background-size: 36px 36px;
+    linear-gradient(rgba(245, 242, 238, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 242, 238, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::before {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  opacity: 0.12;
+  background-image:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 22%),
+    repeating-radial-gradient(circle at 13% 27%, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 6px);
+  mix-blend-mode: overlay;
+}
+
+.display-condensed {
+  font-family: var(--font-display), Impact, sans-serif;
+  letter-spacing: 0;
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.anim-reveal-1,
+.anim-reveal-2,
+.anim-reveal-3,
+.anim-reveal-4,
+.anim-reveal-5,
+.anim-reveal-6,
+.anim-reveal-7,
+.anim-reveal-8 {
+  animation: reveal-up 0.8s ease-out both;
+}
+
+.anim-reveal-1 { animation-delay: 0.08s; }
+.anim-reveal-2 { animation-delay: 0.16s; }
+.anim-reveal-3 { animation-delay: 0.24s; }
+.anim-reveal-4 { animation-delay: 0.32s; }
+.anim-reveal-5 { animation-delay: 0.4s; }
+.anim-reveal-6 { animation-delay: 0.48s; }
+.anim-reveal-7 { animation-delay: 0.56s; }
+.anim-reveal-8 { animation-delay: 0.64s; }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
 }

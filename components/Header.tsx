@@ -1,39 +1,78 @@
+"use client";
+
 import Link from "next/link";
-import { Download } from "lucide-react";
-import { profile } from "@/data/profile";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const nav = [
-  { href: "/#projects", label: "Projects" },
-  { href: "/#skills", label: "Skills" },
-  { href: "/#impact", label: "Impact" },
   { href: "/about", label: "About" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/about#experience", label: "Experience" },
   { href: "/contact", label: "Contact" }
 ];
 
 export function Header() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-line/10 bg-cloud/86 backdrop-blur-xl">
+    <header
+      className={`fixed top-0 z-50 w-full transition duration-300 ${
+        scrolled ? "border-b border-white/10 bg-void/82 backdrop-blur-xl" : "border-b border-white/5 bg-void/35 backdrop-blur-md"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-ink text-sm font-black text-signal">
-            {profile.initials}
-          </span>
-          <span className="text-sm font-semibold tracking-wide text-ink">{profile.shortName}</span>
+        <Link href="/" className="font-display text-2xl leading-none text-bone">
+          RIDHA AKBAR
         </Link>
-        <nav className="hidden items-center gap-7 text-sm font-medium text-steel md:flex">
+
+        <nav className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-ink">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-[11px] font-bold uppercase text-fog transition hover:text-bone"
+            >
               {item.label}
             </Link>
           ))}
         </nav>
-        <Link
-          href="/portfolio-pdf"
-          className="inline-flex items-center gap-2 rounded-md border border-line/20 bg-white px-3 py-2 text-sm font-semibold text-ink shadow-sm transition hover:border-signal"
+
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center border border-white/10 text-bone md:hidden"
+          onClick={() => setOpen((value) => !value)}
+          aria-label="Toggle navigation"
+          aria-expanded={open}
         >
-          <Download size={16} />
-          PDF
-        </Link>
+          {open ? <X size={18} /> : <Menu size={18} />}
+        </button>
+      </div>
+
+      <div
+        className={`fixed right-0 top-[73px] h-[calc(100vh-73px)] w-72 border-l border-white/10 bg-void/96 p-6 backdrop-blur-xl transition md:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <nav className="grid gap-4">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="border-b border-white/10 py-4 font-display text-4xl leading-none text-bone"
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   );

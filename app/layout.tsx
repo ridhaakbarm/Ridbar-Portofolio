@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
+const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-display" });
 
 export const metadata: Metadata = {
-  title: "Muhammad Ridha Akbar | Operations & Industrial Systems Portfolio",
+  title: "Ridha Akbar | Creative-Tech Operations Portfolio",
   description:
-    "Portfolio of Muhammad Ridha Akbar, an Industrial Engineering fresh graduate focused on operations, process optimization, data-driven decision making, and internal systems.",
+    "A cinematic portfolio of manufacturing systems, Laravel applications, operational dashboards, and industrial workflow tools by Muhammad Ridha Akbar.",
   openGraph: {
-    title: "Muhammad Ridha Akbar | Operations & Industrial Systems Portfolio",
+    title: "Ridha Akbar | Creative-Tech Operations Portfolio",
     description:
-      "Industrial Engineering portfolio covering manufacturing digitalization systems, operational dashboards, maintenance workflows, lab dispatch, and process improvement.",
+      "Manufacturing digitalization systems, OEE dashboards, maintenance workflows, lab dispatch, and process improvement tools.",
     type: "website"
   }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
+      <body className="min-h-screen bg-void font-body text-chalk antialiased">{children}</body>
     </html>
   );
 }

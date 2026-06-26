@@ -8,7 +8,7 @@ import { TechStackShowcase } from "@/components/TechStackShowcase";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-void">
+    <main className="min-h-screen bg-bg-primary">
       <Header />
       <HeroSection />
       <StatsBar />

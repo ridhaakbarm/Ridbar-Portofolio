@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-void text-chalk">
+    <main className="min-h-screen bg-bg-primary text-text-primary">
       <Header />
       <section className="mx-auto max-w-7xl px-5 pb-20 pt-32">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
@@ -20,22 +20,22 @@ export default function ContactPage() {
               <span className="h-2 w-2 rounded-full bg-emerald-300" />
               Available for hire
             </span>
-            <h1 className="mt-6 font-display text-7xl leading-none text-bone md:text-8xl">
+            <h1 className="mt-6 font-display text-7xl leading-none text-text-primary md:text-8xl">
               Looking for a fullstack developer who ships real systems?
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-fog">{profile.availability}</p>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-text-secondary">{profile.availability}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href={profile.cvPath}
                 target="_blank"
-                className="inline-flex items-center gap-2 bg-ember px-5 py-3 text-sm font-bold uppercase text-bone transition hover:bg-ember-dark"
+                className="inline-flex items-center gap-2 rounded-lg bg-cta px-5 py-3 text-sm font-bold uppercase text-white transition hover:bg-cta-hover"
               >
                 <Download size={17} />
                 Download Resume
               </Link>
               <a
                 href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2 border border-white/10 px-5 py-3 text-sm font-bold uppercase text-chalk transition hover:border-ember"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-bold uppercase text-text-primary transition hover:border-accent"
               >
                 <Mail size={17} />
                 Email Me
@@ -43,37 +43,37 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <form className="border border-white/10 bg-surface p-5 md:p-8">
-            <h2 className="font-display text-5xl leading-none text-bone">Start a Conversation</h2>
+          <form className="rounded-2xl border border-border bg-bg-secondary p-5 shadow-sm md:p-8">
+            <h2 className="font-display text-5xl leading-none text-text-primary">Start a Conversation</h2>
             <div className="mt-6 grid gap-4">
-              <label className="grid gap-2 text-xs font-bold uppercase text-fog">
+              <label className="grid gap-2 text-xs font-bold uppercase text-text-secondary">
                 Name
                 <input
-                  className="border border-white/10 bg-void px-4 py-3 text-sm normal-case text-chalk outline-none transition placeholder:text-dust focus:border-ember"
+                  className="border border-border bg-bg-primary px-4 py-3 text-sm normal-case text-text-primary outline-none transition placeholder:text-dust focus:border-accent"
                   name="name"
                   placeholder="Your name"
                 />
               </label>
-              <label className="grid gap-2 text-xs font-bold uppercase text-fog">
+              <label className="grid gap-2 text-xs font-bold uppercase text-text-secondary">
                 Email
                 <input
-                  className="border border-white/10 bg-void px-4 py-3 text-sm normal-case text-chalk outline-none transition placeholder:text-dust focus:border-ember"
+                  className="border border-border bg-bg-primary px-4 py-3 text-sm normal-case text-text-primary outline-none transition placeholder:text-dust focus:border-accent"
                   name="email"
                   type="email"
                   placeholder="you@example.com"
                 />
               </label>
-              <label className="grid gap-2 text-xs font-bold uppercase text-fog">
+              <label className="grid gap-2 text-xs font-bold uppercase text-text-secondary">
                 Message
                 <textarea
-                  className="min-h-36 border border-white/10 bg-void px-4 py-3 text-sm normal-case text-chalk outline-none transition placeholder:text-dust focus:border-ember"
+                  className="min-h-36 border border-border bg-bg-primary px-4 py-3 text-sm normal-case text-text-primary outline-none transition placeholder:text-dust focus:border-accent"
                   name="message"
                   placeholder="Tell me about the role, project, or system you need built."
                 />
               </label>
               <button
                 type="button"
-                className="bg-bone px-5 py-3 text-sm font-black uppercase text-void transition hover:bg-ember hover:text-bone"
+                className="rounded-lg bg-cta px-5 py-3 text-sm font-black uppercase text-white transition hover:bg-cta-hover"
               >
                 Frontend-only form
               </button>
@@ -82,25 +82,25 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-4">
-          <a href={`mailto:${profile.email}`} className="border border-white/10 bg-surface p-5 transition hover:border-ember">
-            <Mail className="text-ember" size={22} />
-            <p className="mt-4 text-sm font-bold uppercase text-fog">Email</p>
-            <p className="mt-2 font-black text-bone">{profile.email}</p>
+          <a href={`mailto:${profile.email}`} className="rounded-xl border border-border bg-bg-secondary p-5 transition hover:border-accent">
+            <Mail className="text-accent" size={22} />
+            <p className="mt-4 text-sm font-bold uppercase text-text-secondary">Email</p>
+            <p className="mt-2 font-black text-text-primary">{profile.email}</p>
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="border border-white/10 bg-surface p-5 transition hover:border-ember">
-            <Linkedin className="text-ember" size={22} />
-            <p className="mt-4 text-sm font-bold uppercase text-fog">LinkedIn</p>
-            <p className="mt-2 font-black text-bone">ridhaakbar</p>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="rounded-xl border border-border bg-bg-secondary p-5 transition hover:border-accent">
+            <Linkedin className="text-accent" size={22} />
+            <p className="mt-4 text-sm font-bold uppercase text-text-secondary">LinkedIn</p>
+            <p className="mt-2 font-black text-text-primary">ridhaakbar</p>
           </a>
-          <a href={profile.socialLinks.github} className="border border-white/10 bg-surface p-5 transition hover:border-ember">
-            <Github className="text-ember" size={22} />
-            <p className="mt-4 text-sm font-bold uppercase text-fog">GitHub</p>
-            <p className="mt-2 font-black text-bone">Add profile URL</p>
+          <a href={profile.socialLinks.github} className="rounded-xl border border-border bg-bg-secondary p-5 transition hover:border-accent">
+            <Github className="text-accent" size={22} />
+            <p className="mt-4 text-sm font-bold uppercase text-text-secondary">GitHub</p>
+            <p className="mt-2 font-black text-text-primary">Add profile URL</p>
           </a>
-          <div className="border border-white/10 bg-surface p-5">
-            <MapPin className="text-ember" size={22} />
-            <p className="mt-4 text-sm font-bold uppercase text-fog">Location</p>
-            <p className="mt-2 font-black text-bone">{profile.location}</p>
+          <div className="rounded-xl border border-border bg-bg-secondary p-5">
+            <MapPin className="text-accent" size={22} />
+            <p className="mt-4 text-sm font-bold uppercase text-text-secondary">Location</p>
+            <p className="mt-2 font-black text-text-primary">{profile.location}</p>
           </div>
         </div>
       </section>

@@ -59,15 +59,14 @@ const cards: FeaturedCard[] = [
 
 export function FeaturedProjects() {
   return (
-    <section id="projects" className="relative overflow-hidden bg-surface px-5 py-24 text-chalk md:py-32">
-      <div className="absolute inset-0 grid-lines opacity-40" />
+    <section id="projects" className="relative overflow-hidden bg-bg-secondary px-5 py-24 text-text-primary md:py-32">
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="flex items-end justify-between gap-6 border-b border-white/10 pb-8">
+        <div className="flex items-end justify-between gap-6 border-b border-border pb-8">
           <div>
-            <p className="text-xs font-bold uppercase text-ember">Selected work</p>
-            <h2 className="mt-3 font-display text-6xl leading-none text-bone md:text-8xl">Interface Archive</h2>
+            <p className="text-xs font-bold uppercase text-accent">Selected work</p>
+            <h2 className="mt-3 font-display text-6xl font-black leading-none text-text-primary md:text-8xl">Interface Archive</h2>
           </div>
-          <p className="hidden text-xs font-bold uppercase text-fog sm:block">04 Projects</p>
+          <p className="hidden text-xs font-bold uppercase text-text-secondary sm:block">04 Projects</p>
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -78,18 +77,18 @@ export function FeaturedProjects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
-              className="group min-h-[460px] border border-white/10 bg-void/60 transition duration-300 hover:-translate-y-1 hover:border-ember/70"
+              className="group min-h-[460px] rounded-xl border border-border bg-bg-primary transition duration-300 hover:-translate-y-1 hover:border-accent"
             >
               <Link href={card.href} className="flex h-full flex-col p-5">
                 <div className="flex items-start justify-between gap-5">
-                  <p className="font-display text-6xl leading-none text-white/[0.18]">{card.number}</p>
-                  <ArrowUpRight className="text-fog transition group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-ember" size={24} />
+                  <p className="font-display text-6xl font-black leading-none text-text-muted/20">{card.number}</p>
+                  <ArrowUpRight className="text-text-secondary transition group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent" size={24} />
                 </div>
 
-                <h3 className="mt-6 font-display text-5xl leading-none text-bone md:text-6xl">{card.title}</h3>
-                <p className="mt-4 max-w-xl text-sm leading-6 text-fog">{card.description}</p>
+                <h3 className="mt-6 font-display text-5xl font-black leading-none text-text-primary md:text-6xl">{card.title}</h3>
+                <p className="mt-4 max-w-xl text-sm leading-6 text-text-secondary">{card.description}</p>
 
-                <div className="mt-8 overflow-hidden border border-white/10 bg-elevated">
+                <div className="mt-8 overflow-hidden rounded-xl border border-border bg-bg-elevated">
                   <img
                     src={card.image}
                     alt={card.alt}
@@ -100,7 +99,7 @@ export function FeaturedProjects() {
 
                 <div className="mt-auto flex flex-wrap gap-2 pt-6">
                   {card.tech.map((tech) => (
-                    <span key={tech} className="border border-white/10 px-2.5 py-1.5 text-[10px] font-bold uppercase text-fog">
+                    <span key={tech} className="rounded-full border border-border px-2.5 py-1.5 text-[10px] font-bold uppercase text-text-secondary">
                       {tech}
                     </span>
                   ))}

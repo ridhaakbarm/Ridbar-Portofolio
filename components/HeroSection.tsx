@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { ArrowDownRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { HeroLandscape } from "@/components/HeroLandscape";
 import { HeroVisual } from "@/components/HeroVisual";
 import { Marquee } from "@/components/Marquee";
-import { Coordinates, ProjectCounter, SystemLabel } from "@/components/TechDecorations";
+import { DevFloatingIcons, ProjectCounter, ScrollIndicator, StatusDot } from "@/components/TechDecorations";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 
@@ -14,16 +15,30 @@ const reveal = {
   visible: { opacity: 1, y: 0 }
 };
 
+function renderHeadline(line: string) {
+  const parts = line.split("SYSTEMS");
+  if (parts.length === 1) {
+    return line;
+  }
+
+  return (
+    <>
+      {parts[0]}
+      <span className="text-accent">SYSTEMS</span>
+      {parts.slice(1).join("SYSTEMS")}
+    </>
+  );
+}
+
 export function HeroSection() {
   const headlineLines = profile.heroHeadline.split("\n");
 
   return (
-    <section className="grain-overlay relative min-h-screen overflow-hidden border-b border-white/10 bg-void text-chalk">
-      <div className="absolute inset-0 grid-lines opacity-70" />
-      <div className="absolute left-0 top-24 h-px w-full bg-white/10" />
-      <div className="absolute bottom-20 left-0 h-px w-full bg-white/10" />
+    <section className="relative min-h-screen overflow-hidden border-b border-border bg-bg-primary text-text-primary">
+      <HeroLandscape />
+      <DevFloatingIcons />
 
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl gap-8 px-5 pb-28 pt-28 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-24">
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl gap-8 px-5 pb-32 pt-28 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-28">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -31,10 +46,13 @@ export function HeroSection() {
           className="relative"
         >
           <motion.div variants={reveal} transition={{ duration: 0.6, ease: "easeOut" }}>
-            <Coordinates />
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-bg-secondary/80 px-4 py-2 shadow-sm backdrop-blur">
+              <StatusDot />
+              <span className="text-xs font-bold uppercase text-text-secondary">Full Stack Developer</span>
+            </div>
           </motion.div>
 
-          <div className="mt-10">
+          <div className="mt-8">
             {headlineLines.map((line) => (
               <motion.div
                 key={line}
@@ -42,8 +60,8 @@ export function HeroSection() {
                 transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                 className="overflow-hidden"
               >
-                <h1 className="font-display text-[clamp(4.5rem,12vw,10.5rem)] leading-[0.82] text-bone">
-                  {line}
+                <h1 className="font-display text-[clamp(3.8rem,10vw,8.5rem)] font-black leading-[0.9] text-text-primary">
+                  {renderHeadline(line)}
                 </h1>
               </motion.div>
             ))}
@@ -52,16 +70,16 @@ export function HeroSection() {
           <motion.p
             variants={reveal}
             transition={{ duration: 0.55, ease: "easeOut" }}
-            className="mt-8 max-w-2xl text-base leading-8 text-fog md:text-lg"
+            className="mt-8 max-w-2xl text-base leading-8 text-text-secondary md:text-lg"
           >
             {profile.heroSubtitle}
           </motion.p>
 
           <motion.div variants={reveal} className="mt-9">
-            <p className="text-xs font-bold uppercase text-fog">{profile.name}</p>
+            <p className="text-xs font-bold uppercase text-text-secondary">{profile.name}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {profile.roles.map((role) => (
-                <span key={role} className="border border-white/[0.12] bg-white/[0.03] px-3 py-2 text-[10px] font-bold uppercase text-chalk">
+                <span key={role} className="rounded-full border border-border bg-bg-secondary/80 px-3 py-2 text-[10px] font-bold uppercase text-text-secondary shadow-sm backdrop-blur">
                   {role}
                 </span>
               ))}
@@ -75,13 +93,15 @@ export function HeroSection() {
 
         <div className="relative">
           <div className="mb-5 flex items-center justify-between gap-4">
-            <SystemLabel label="Operations system builder" />
-            <p className="hidden text-[10px] font-bold uppercase text-fog sm:block">Selected interface archive</p>
+            <span className="rounded-full border border-border bg-bg-secondary/80 px-3 py-2 text-[10px] font-bold uppercase text-text-secondary shadow-sm backdrop-blur">
+              Friendly systems builder
+            </span>
+            <p className="hidden text-[10px] font-bold uppercase text-text-secondary sm:block">Selected interface archive</p>
           </div>
           <HeroVisual />
           <Link
             href="#projects"
-            className="group absolute -bottom-10 right-3 z-20 flex h-28 w-28 items-center justify-center rounded-full bg-ember text-center text-[11px] font-black uppercase text-bone shadow-glow transition duration-300 hover:scale-105 hover:bg-ember-dark md:-right-5 md:h-32 md:w-32"
+            className="group absolute -bottom-10 right-3 z-20 flex h-28 w-28 items-center justify-center rounded-full bg-cta text-center text-[11px] font-black uppercase text-white shadow-glow transition duration-300 hover:scale-105 hover:bg-cta-hover md:-right-5 md:h-32 md:w-32"
             aria-label="View projects"
           >
             <span className="flex flex-col items-center gap-1">
@@ -91,6 +111,10 @@ export function HeroSection() {
             </span>
           </Link>
         </div>
+      </div>
+
+      <div className="absolute bottom-20 left-1/2 z-20 hidden -translate-x-1/2 md:block">
+        <ScrollIndicator />
       </div>
 
       <div className="absolute bottom-0 left-0 z-20 w-full">

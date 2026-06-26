@@ -5,7 +5,7 @@ import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-cloud">
+    <main className="min-h-screen bg-bg-primary">
       <Header />
       <section className="mx-auto max-w-7xl px-5 py-16">
         <SectionTitle

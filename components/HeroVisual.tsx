@@ -1,7 +1,13 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { DataGrid, StatusDot, WorkflowNodes } from "@/components/TechDecorations";
+import { StatusDot } from "@/components/TechDecorations";
+
+const codeLines = [
+  ["const", " systems = buildFactoryApps();"],
+  ["await", " deploy(workflows);"],
+  ["return", " dashboards.ready();"]
+];
 
 export function HeroVisual() {
   const mouseX = useMotionValue(0);
@@ -13,7 +19,7 @@ export function HeroVisual() {
 
   return (
     <motion.div
-      className="relative mx-auto aspect-[4/5] w-full max-w-[420px] overflow-hidden border border-white/10 bg-elevated/70 p-5 shadow-glow"
+      className="relative mx-auto aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-3xl border border-border bg-bg-secondary/86 p-5 shadow-glow backdrop-blur"
       style={{ rotateX, rotateY, transformPerspective: 900 }}
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
@@ -25,49 +31,45 @@ export function HeroVisual() {
         mouseY.set(0);
       }}
     >
-      <div className="absolute inset-0 grid-lines opacity-60" />
-      <div className="absolute left-5 top-5 z-10">
-        <StatusDot label="profile signal" />
-      </div>
-      <div className="absolute right-5 top-5 z-10 text-right text-[10px] font-bold uppercase text-fog">
-        <p>Industrial</p>
-        <p>Interface</p>
-      </div>
+      <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/15 blur-3xl" />
+      <div className="absolute -bottom-20 -left-16 h-52 w-52 rounded-full bg-warm/20 blur-3xl" />
 
       <div className="relative z-10 flex h-full flex-col justify-between">
-        <div className="pt-14">
-          <div className="relative mx-auto flex aspect-square w-[72%] items-center justify-center">
-            <div className="absolute inset-0 rounded-full border border-dashed border-white/20" />
-            <div className="absolute inset-[12%] rounded-full border border-dashed border-ember/50" />
-            <div className="absolute inset-[24%] rounded-full border border-white/15" />
-            <motion.div
-              className="absolute inset-[5%] rounded-full border border-dashed border-white/20"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.div
-              className="absolute inset-[18%] rounded-full border border-dashed border-ember/30"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-            />
-            {/* REPLACE: Add your profile photo here. Keep it square or portrait for best results. */}
-            <div className="relative flex h-[46%] w-[46%] items-center justify-center rounded-full border border-white/15 bg-void text-center">
-              <span className="font-display text-6xl leading-none text-bone">RA</span>
-              <span className="absolute -right-2 top-5 h-4 w-4 rounded-full bg-ember shadow-glow" />
-            </div>
+        <div className="flex items-center justify-between">
+          <StatusDot label="available" />
+          <span className="rounded-full bg-accent-soft px-3 py-1 text-[10px] font-black uppercase text-accent">
+            Fullstack
+          </span>
+        </div>
+
+        <div className="mx-auto flex h-36 w-36 items-center justify-center rounded-[2rem] border border-border bg-bg-elevated shadow-soft">
+          <span className="rounded-[1.5rem] bg-bg-secondary px-6 py-5 font-display text-5xl font-black text-accent shadow-sm">
+            RA
+          </span>
+        </div>
+
+        <div className="rounded-2xl border border-border bg-bg-primary/80 p-4 shadow-sm">
+          <div className="mb-4 flex gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-warm" />
+            <span className="h-2.5 w-2.5 rounded-full bg-accent" />
+            <span className="h-2.5 w-2.5 rounded-full bg-text-muted" />
+          </div>
+          <div className="space-y-3 font-mono text-xs">
+            {codeLines.map(([keyword, rest]) => (
+              <p key={`${keyword}-${rest}`} className="text-text-secondary">
+                <span className="font-bold text-accent">{keyword}</span>
+                {rest}
+              </p>
+            ))}
           </div>
         </div>
 
-        <div className="space-y-5">
-          <WorkflowNodes />
-          <DataGrid />
-          <div className="grid grid-cols-3 gap-2 text-[10px] font-bold uppercase text-fog">
-            {["MES", "OEE", "QC"].map((item) => (
-              <span key={item} className="border border-white/10 bg-white/[0.04] px-2 py-2 text-center">
-                {item}
-              </span>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-2">
+          {["Laravel", "PHP", "MySQL", "REST", "Tailwind"].map((item) => (
+            <span key={item} className="rounded-full border border-border bg-bg-elevated px-3 py-1.5 text-[10px] font-black uppercase text-text-secondary">
+              {item}
+            </span>
+          ))}
         </div>
       </div>
     </motion.div>

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
-const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-display" });
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-display"
+});
 
 export const metadata: Metadata = {
   title: "Ridha Akbar | Fullstack Developer & Systems Architect",
@@ -19,8 +24,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
-      <body className="min-h-screen bg-void font-body text-chalk antialiased">{children}</body>
+    <html lang="en" data-theme="light" className={`${inter.variable} ${outfit.variable}`}>
+      <body className="min-h-screen bg-bg-primary font-body text-text-primary antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

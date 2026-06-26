@@ -10,31 +10,47 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        void: "#0A0A0A",
-        surface: "#111111",
-        elevated: "#1A1A1A",
-        muted: "#2A2A2A",
-        dust: "#666666",
-        fog: "#999999",
-        chalk: "#E8E4E0",
-        bone: "#F5F2EE",
-        ember: "#DC2626",
-        "ember-dark": "#991B1B",
-        ink: "#101418",
-        panel: "#151b21",
-        line: "#26313a",
-        steel: "#60717f",
-        signal: "#23c6a5",
-        amber: "#f3b64f",
-        cloud: "#eef3f5"
+        "bg-primary": "var(--bg-primary)",
+        "bg-secondary": "var(--bg-secondary)",
+        "bg-elevated": "var(--bg-elevated)",
+        "text-primary": "var(--text-primary)",
+        "text-secondary": "var(--text-secondary)",
+        "text-muted": "var(--text-muted)",
+        accent: {
+          DEFAULT: "var(--accent)",
+          soft: "var(--accent-soft)"
+        },
+        border: "var(--border)",
+        cta: {
+          DEFAULT: "var(--cta-bg)",
+          hover: "var(--cta-hover)"
+        },
+        warm: "var(--warm-accent)",
+        ink: "var(--text-primary)",
+        panel: "var(--bg-secondary)",
+        line: "var(--border)",
+        steel: "var(--text-secondary)",
+        signal: "var(--accent)",
+        amber: "var(--warm-accent)",
+        cloud: "var(--bg-primary)",
+        void: "var(--bg-primary)",
+        surface: "var(--bg-secondary)",
+        elevated: "var(--bg-elevated)",
+        muted: "var(--border)",
+        dust: "var(--text-muted)",
+        fog: "var(--text-secondary)",
+        chalk: "var(--text-primary)",
+        bone: "var(--text-primary)",
+        ember: "var(--accent)",
+        "ember-dark": "var(--cta-hover)"
       },
       fontFamily: {
-        display: ["var(--font-display)", "Impact", "sans-serif"],
+        display: ["var(--font-display)", "Outfit", "sans-serif"],
         body: ["var(--font-body)", "Inter", "sans-serif"]
       },
       boxShadow: {
-        soft: "0 18px 60px rgba(16, 20, 24, 0.14)",
-        glow: "0 0 80px rgba(220, 38, 38, 0.24)"
+        soft: "0 18px 60px rgba(26, 43, 60, 0.12)",
+        glow: "0 20px 80px rgba(45, 155, 110, 0.2)"
       },
       keyframes: {
         marquee: {
@@ -49,16 +65,26 @@ const config: Config = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" }
         },
-        "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 0 rgba(220, 38, 38, 0)" },
-          "50%": { boxShadow: "0 0 48px rgba(220, 38, 38, 0.35)" }
+        "cloud-drift": {
+          "0%": { transform: "translateX(-8%)" },
+          "100%": { transform: "translateX(8%)" }
+        },
+        "star-twinkle": {
+          "0%, 100%": { opacity: "0.35", transform: "scale(0.8)" },
+          "50%": { opacity: "1", transform: "scale(1)" }
+        },
+        bob: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" }
         }
       },
       animation: {
         marquee: "marquee 28s linear infinite",
         "reveal-up": "reveal-up 0.8s ease-out both",
         "fade-in": "fade-in 0.8s ease-out both",
-        "pulse-glow": "pulse-glow 3s ease-in-out infinite"
+        "cloud-drift": "cloud-drift 16s ease-in-out infinite alternate",
+        "star-twinkle": "star-twinkle 2.8s ease-in-out infinite",
+        bob: "bob 4s ease-in-out infinite"
       },
       screens: {
         "3xl": "1720px"

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -26,12 +27,12 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition duration-300 ${
-        scrolled ? "border-b border-white/10 bg-void/82 backdrop-blur-xl" : "border-b border-white/5 bg-void/35 backdrop-blur-md"
+        scrolled ? "border-b border-border bg-bg-primary/82 backdrop-blur-xl" : "border-b border-border/60 bg-bg-primary/55 backdrop-blur-md"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-        <Link href="/" className="font-display text-2xl leading-none text-bone">
-          RIDHA AKBAR
+        <Link href="/" className="font-display text-2xl font-black leading-none">
+          <span className="text-text-primary">RIDHA</span> <span className="text-accent">AKBAR</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -39,14 +40,15 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[11px] font-bold uppercase text-fog transition hover:text-bone"
+              className="text-[11px] font-bold uppercase text-text-secondary transition hover:text-text-primary"
             >
               {item.label}
             </Link>
           ))}
+          <ThemeToggle />
           <Link
             href="/contact"
-            className="border border-ember/60 bg-ember px-4 py-2 text-[11px] font-black uppercase text-bone transition hover:bg-ember-dark"
+            className="rounded-lg border border-cta bg-cta px-4 py-2 text-[11px] font-black uppercase text-white transition hover:bg-cta-hover"
           >
             Hire Me
           </Link>
@@ -54,7 +56,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center border border-white/10 text-bone md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-bg-secondary text-text-primary md:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label="Toggle navigation"
           aria-expanded={open}
@@ -64,7 +66,7 @@ export function Header() {
       </div>
 
       <div
-        className={`fixed right-0 top-[73px] h-[calc(100vh-73px)] w-72 border-l border-white/10 bg-void/96 p-6 backdrop-blur-xl transition md:hidden ${
+        className={`fixed right-3 top-[82px] h-[calc(100vh-96px)] w-72 rounded-2xl border border-border bg-bg-secondary/96 p-6 shadow-soft backdrop-blur-xl transition md:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -73,15 +75,16 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="border-b border-white/10 py-4 font-display text-4xl leading-none text-bone"
+              className="border-b border-border py-4 font-display text-3xl font-black leading-none text-text-primary"
               onClick={() => setOpen(false)}
             >
               {item.label}
             </Link>
           ))}
+          <ThemeToggle />
           <Link
             href="/contact"
-            className="mt-3 bg-ember px-4 py-3 text-center text-xs font-black uppercase text-bone"
+            className="mt-3 rounded-lg bg-cta px-4 py-3 text-center text-xs font-black uppercase text-white"
             onClick={() => setOpen(false)}
           >
             Hire Me

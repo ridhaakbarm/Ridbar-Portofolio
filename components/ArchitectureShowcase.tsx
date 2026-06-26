@@ -8,16 +8,15 @@ const layers = [
 
 export function ArchitectureShowcase() {
   return (
-    <section className="relative overflow-hidden bg-void px-5 py-24 text-chalk">
-      <div className="absolute inset-0 grid-lines opacity-40" />
+    <section className="relative overflow-hidden bg-bg-primary px-5 py-24 text-text-primary">
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
-            <p className="text-xs font-bold uppercase text-ember">Systems architecture</p>
-            <h2 className="mt-3 font-display text-6xl leading-none text-bone md:text-8xl">
+            <p className="text-xs font-bold uppercase text-accent">Systems architecture</p>
+            <h2 className="mt-3 font-display text-6xl font-black leading-none text-text-primary md:text-8xl">
               How I Architect Systems
             </h2>
-            <p className="mt-5 text-base leading-7 text-fog">
+            <p className="mt-5 text-base leading-7 text-text-secondary">
               I map operational complexity into software layers: permissions, workflows, relational models,
               dashboards, and export/integration surfaces.
             </p>
@@ -25,14 +24,14 @@ export function ArchitectureShowcase() {
 
           <div className="grid gap-3">
             {layers.map((layer, index) => (
-              <div key={layer.title} className="group grid gap-4 border border-white/10 bg-surface/80 p-4 transition hover:border-ember/70 md:grid-cols-[150px_1fr]">
+              <div key={layer.title} className="group grid gap-4 rounded-xl border border-border bg-bg-secondary p-4 shadow-sm transition hover:border-accent md:grid-cols-[150px_1fr]">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-ember/40 font-display text-2xl text-ember">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 font-display text-2xl font-black text-accent">
                     {index + 1}
                   </span>
-                  <h3 className="font-display text-3xl leading-none text-bone">{layer.title}</h3>
+                  <h3 className="font-display text-3xl font-black leading-none text-text-primary">{layer.title}</h3>
                 </div>
-                <p className="text-sm leading-6 text-fog">{layer.detail}</p>
+                <p className="text-sm leading-6 text-text-secondary">{layer.detail}</p>
               </div>
             ))}
           </div>

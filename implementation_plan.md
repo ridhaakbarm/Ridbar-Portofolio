@@ -1,221 +1,427 @@
-# Portfolio Audit & Transformation: Fullstack Developer & Systems Architect
+# Redesign Portfolio: Warm Flat-Illustration Style with Day/Night Toggle
 
-## 🔍 Senior HR Audit — Honest Assessment
+Transform the current industrial/HUD dark theme (ember red, grid-lines, grain overlay) into a warm, friendly, flat-illustration aesthetic with smooth day/night mode transition.
 
-I reviewed your portfolio as a Senior HR/Technical Recruiter at a mid-to-large IT company hiring for **Fullstack Developer** and **Systems Architect** roles. Here is my brutally honest assessment:
+## Current State Summary
 
-### ❌ What Would Make Me Pass on This Candidate
-
-| Issue | HR Impact |
-|---|---|
-| **Title says "Industrial Engineering Fresh Graduate"** | Instant disqualification for software roles. HR filters will skip this. |
-| **No clear "Fullstack Developer" or "Systems Architect" positioning** | You built 8 production systems but your portfolio doesn't say "developer" |
-| **No GitHub link** | Empty `github: ""` — this is a **dealbreaker** for any tech hire |
-| **No tech stack overview on landing page** | I have to dig deep to find you know Laravel, PHP, MySQL, JS, REST APIs |
-| **No architecture diagrams** | You claim systems architecture but show zero diagrams |
-| **Missing Skills section on homepage** | The About page has skills, but most HR never navigate that far |
-| **No "years of experience" or project count metrics** | HR needs quick-scan numbers |
-| **Hero says "BUILDING SYSTEMS FOR REAL OPERATIONS"** | Too vague. Could be an operations manager, not a developer |
-| **Roles show "OPERATIONS SYSTEM BUILDER"** | This is not a recognized job title in tech |
-| **No footer with quick links, copyright, or social proof** | Looks unfinished |
-| **Contact page is minimal** | No contact form, no CTA, no urgency |
-| **No testimonials or collaboration proof** | No social proof at all |
-| **About page title: "Industrial Engineering Fresh Graduate"** | Reinforces non-tech identity |
-| **Resume page embeds PDF but doesn't highlight dev skills** | Missed opportunity |
-
-### ✅ What's Actually Impressive (But Hidden)
-
-| Strength | What HR Should See |
-|---|---|
-| **8 real production systems** in manufacturing (not toy projects) | This beats 90% of junior portfolios |
-| **Laravel 10 & 12, PHP 8.1/8.2** | Solid backend framework mastery |
-| **Complex domain modeling** (work orders, OEE, PM, tickets, QC) | This IS systems architecture |
-| **Role-based access, approval workflows, multi-step state machines** | Advanced backend patterns |
-| **Excel exports, PDF generation, Google Sheets API, REST APIs** | Integration skills |
-| **Real screenshots** of production dashboards | Proof of delivery |
-| **MES, OEE, CMMS concepts** | Deep domain knowledge |
-| **Tailwind CSS, Bootstrap, Alpine.js, Chart.js, Vite** | Frontend competence |
+| Aspect | Current |
+|--------|---------|
+| **Aesthetic** | Industrial HUD — dark void `#0A0A0A`, red accent `#DC2626`, grid-lines, grain overlay, dashed orbits |
+| **Fonts** | Display: `Bebas Neue` (condensed caps), Body: `Inter` |
+| **Framework** | Next.js 14.2, Tailwind CSS 3.4, Framer Motion 12, Lucide React |
+| **Pages** | Home, About, Projects, Project Detail `[slug]`, Resume, Contact, Portfolio-PDF |
+| **Components** | Header, HeroSection, HeroVisual, StatsBar, Marquee, TechStackShowcase, FeaturedProjects, ProjectCard, ProjectVisual, ArchitectureShowcase, TechDecorations, SectionTitle, Footer, PdfDownloadButton |
+| **Dark mode** | None — permanently dark |
 
 ---
 
-## 🎯 Repositioning Strategy
+## Resolved Decisions
 
-Transform from **"Industrial Engineering Fresh Graduate"** → **"Fullstack Developer & Systems Architect"** who has built 8 enterprise-grade production systems.
+| Decision | Resolution |
+|----------|-----------|
+| **Display Font** | ✅ `Bebas Neue` → **`Outfit`** (rounded geometric sans-serif, warm & friendly) |
+| **Illustration Approach** | ✅ **Hybrid** — inline SVG for small animated decorations (floating icons, particles) + AI-generated images for hero landscape background layers |
+| **Parallax Depth** | ✅ **3 layers** (sky → hills with dev objects → foreground grass/elements) |
+| **Theme Persistence** | ✅ Save to `localStorage`, detect system preference on first visit |
 
 ---
 
 ## Proposed Changes
 
-### 1. Profile & Identity Rebranding
+### Design System — Color Palette
 
-#### [MODIFY] [profile.ts](file:///c:/laragon/www/RidBar%20Portofolio/data/profile.ts)
+#### Light Mode (Day)
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--bg-primary` | `#F0F7FF` | Page background (soft sky-white) |
+| `--bg-secondary` | `#FFFFFF` | Cards, sections |
+| `--bg-elevated` | `#E8F4FD` | Elevated panels |
+| `--text-primary` | `#1A2B3C` | Headings (deep navy) |
+| `--text-secondary` | `#5A6B7C` | Body text |
+| `--text-muted` | `#8A9BAC` | Captions, labels |
+| `--accent` | `#2D9B6E` | Accent highlight (green) |
+| `--accent-soft` | `#E6F5EE` | Accent backgrounds |
+| `--sky-top` | `#87CEEB` | Sky gradient top |
+| `--sky-bottom` | `#C5E8D5` | Sky gradient bottom (grass meet) |
+| `--border` | `#D1E3F0` | Border color |
+| `--cta-bg` | `#2D9B6E` | Primary CTA |
+| `--cta-hover` | `#238B5E` | CTA hover |
+| `--warm-accent` | `#F4A843` | Orange/yellow accent (flowers, warmth) |
 
-Complete identity rewrite:
-
-- **title**: `"Industrial Engineering Fresh Graduate"` → `"Fullstack Developer & Systems Architect"`
-- **roleFocus**: → `"Laravel · PHP · MySQL · REST APIs · Enterprise Systems"`
-- **headline**: Rewrite to emphasize building 8 production systems, fullstack development, system design
-- **heroHeadline**: `"BUILDING SYSTEMS\nFOR REAL OPERATIONS."` → `"I BUILD SYSTEMS\nTHAT RUN FACTORIES."`
-- **heroSubtitle**: Emphasize "fullstack developer" with 8 enterprise systems in production
-- **roles**: `["FULLSTACK DEVELOPER", "SYSTEMS ARCHITECT", "LARAVEL ENGINEER"]`
-- **marqueeItems**: Add `"PHP"`, `"REST API"`, `"Tailwind CSS"`, `"Vite"`, `"Alpine.js"`, `"Chart.js"`, `"Role-Based Access"` alongside existing items
-- **summary**: Rewrite with fullstack/architect language
-- **availability**: `"Open to fullstack developer, systems architect, backend engineer, and software engineering roles."`
+#### Dark Mode (Night)
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--bg-primary` | `#0B1426` | Deep navy night sky |
+| `--bg-secondary` | `#111D33` | Cards, sections |
+| `--bg-elevated` | `#162340` | Elevated panels |
+| `--text-primary` | `#E8F0F8` | Headings (bright white-blue) |
+| `--text-secondary` | `#9AAFCC` | Body text |
+| `--text-muted` | `#5A7099` | Captions, labels |
+| `--accent` | `#5BEAD6` | Mint/teal highlight |
+| `--accent-soft` | `#0D2A2D` | Accent backgrounds |
+| `--sky-top` | `#070E1A` | Night sky top |
+| `--sky-bottom` | `#0A2020` | Night sky bottom (dark teal) |
+| `--border` | `#1E3050` | Border color |
+| `--cta-bg` | `#5BEAD6` | Primary CTA (teal) |
+| `--cta-hover` | `#4BD4C0` | CTA hover |
+| `--warm-accent` | `#F4D06F` | Warm yellow accent (stars, moon glow) |
 
 ---
 
-### 2. Homepage — Add Missing Sections
+### Component & File Change Map
 
-#### [MODIFY] [page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/page.tsx)
+---
 
-Add the following new sections between HeroSection and FeaturedProjects, plus a Footer:
+#### Phase 1: Theme Infrastructure (New)
 
+##### [NEW] [ThemeProvider.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/ThemeProvider.tsx)
+- React Context provider for day/night theme state
+- Toggles `data-theme="light"` / `data-theme="dark"` attribute on `<html>`
+- **Persists choice to `localStorage`** under key `"ridbar-theme"`
+- On first visit: detects `prefers-color-scheme`, fallback to `"light"`
+- Provides `useTheme()` hook → `{ theme: 'light' | 'dark', toggleTheme: () => void }`
+- Wraps children with `<ThemeContext.Provider>`
+
+##### [NEW] [ThemeToggle.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/ThemeToggle.tsx)
+- Sun ☀️ / Moon 🌙 toggle button for navbar
+- Smooth morphing animation between sun ↔ moon icons using Framer Motion SVG path animation
+- `aria-label` for accessibility ("Switch to dark mode" / "Switch to light mode")
+- Compact pill-shaped button that fits naturally in the navbar
+
+---
+
+#### Phase 2: Global Styles & Config
+
+##### [MODIFY] [globals.css](file:///c:/laragon/www/RidBar%20Portofolio/app/globals.css)
+**What changes:**
+- Add `[data-theme="light"]` block with all light mode CSS custom properties
+- Add `[data-theme="dark"]` block with all dark mode CSS custom properties
+- Add `body` transition: `transition: background-color 0.6s ease, color 0.4s ease` for smooth theme swap
+- **Remove**: `grain-overlay` pseudo-element, `grid-lines` background pattern, red radial gradient on body
+- **Remove**: `::selection` red color → replace with `background: var(--accent)`
+- **Update** scrollbar colors to use `var(--bg-primary)` / `var(--border)` / `var(--accent)`
+- **Add** new keyframes:
+  - `cloud-drift`: horizontal float for cloud elements (0% → 100% translateX with wrap)
+  - `star-twinkle`: opacity pulse for star particles
+  - `bob`: gentle vertical float for decorative dev icons
+  - `parallax-shift`: subtle Y-axis shift tied to scroll
+- **Keep**: `marquee-track` animation, `reveal-up` animation (still useful)
+- **Remove**: `anim-reveal-*` delay classes (will use Framer Motion stagger instead — already in use)
+
+##### [MODIFY] [tailwind.config.ts](file:///c:/laragon/www/RidBar%20Portofolio/tailwind.config.ts)
+**What changes:**
+- **Replace entire color palette**. Old tokens (void, surface, elevated, ember, bone, fog, chalk, etc.) → new semantic tokens referencing CSS variables:
+  ```ts
+  colors: {
+    'bg-primary': 'var(--bg-primary)',
+    'bg-secondary': 'var(--bg-secondary)',
+    'bg-elevated': 'var(--bg-elevated)',
+    'text-primary': 'var(--text-primary)',
+    'text-secondary': 'var(--text-secondary)',
+    'text-muted': 'var(--text-muted)',
+    accent: { DEFAULT: 'var(--accent)', soft: 'var(--accent-soft)' },
+    border: 'var(--border)',
+    cta: { DEFAULT: 'var(--cta-bg)', hover: 'var(--cta-hover)' },
+    warm: 'var(--warm-accent)',
+    // Keep some legacy tokens mapped to new ones for transition
+    ink: 'var(--text-primary)',
+    cloud: 'var(--bg-primary)',
+    signal: 'var(--accent)',
+    steel: 'var(--text-secondary)',
+    line: 'var(--border)',
+  }
+  ```
+- **Font family**: `display` → `['var(--font-display)', 'Outfit', 'sans-serif']`
+- **Add keyframes**: `cloud-drift`, `star-twinkle`, `bob`
+- **Remove**: `pulse-glow` with red box-shadow
+- **Update** `boxShadow.glow` from red → `rgba(45, 155, 110, 0.2)` (green glow)
+
+##### [MODIFY] [layout.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/layout.tsx)
+**What changes:**
+- Replace `Bebas_Neue` import → `Outfit` from `next/font/google` with `weight: ['400','500','600','700','800','900']`
+- Rename CSS variable from `--font-display` to still use `--font-display` (same var name, different font)
+- Wrap `{children}` with `<ThemeProvider>` component
+- Update `<html>` to include `data-theme="light"` as server-side default (ThemeProvider hydrates correct value on client)
+- Update body className: `bg-void font-body text-chalk` → `bg-bg-primary font-body text-text-primary`
+
+---
+
+#### Phase 3: Header & Navigation
+
+##### [MODIFY] [Header.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Header.tsx)
+**What changes:**
+- **Color migration**: Replace all hardcoded dark colors:
+  - `bg-void/82` → `bg-bg-primary/82`
+  - `text-bone` → `text-text-primary`
+  - `text-fog` → `text-text-secondary`
+  - `border-white/10` → `border-border`
+  - `bg-ember` / `hover:bg-ember-dark` → `bg-cta` / `hover:bg-cta-hover`
+- **Add `<ThemeToggle />`** in desktop nav: placed between the last nav link and the "Hire Me" button
+- **Add `<ThemeToggle />`** in mobile slide-out drawer: placed above "Hire Me" button
+- **Logo styling**: "RIDHA" in `text-text-primary`, "AKBAR" in `text-accent` (accent color for brand identity)
+- **Soften mobile drawer**: Change from sharp edges to `rounded-2xl` left border, softer backdrop
+- **Soften "Hire Me" button**: Add `rounded-lg` instead of sharp rectangle
+
+---
+
+#### Phase 4: Hero Section (Major Visual Redesign)
+
+##### [NEW] [HeroLandscape.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/HeroLandscape.tsx)
+**Purpose**: Full illustrated landscape background for the hero section with 3-layer parallax
+
+**Architecture:**
 ```
-Header → Hero → StatsBar → TechStack → FeaturedProjects → ArchitectureShowcase → Footer
+┌──────────────────────────────────────────────┐
+│ Layer 1 (BACK) — Sky                         │
+│ • Light: blue gradient + AI-generated clouds │
+│ • Dark: navy gradient + twinkling star SVGs  │
+│ • Parallax: moves slowest (0.15x scroll)     │
+├──────────────────────────────────────────────┤
+│ Layer 2 (MID) — Hills + Dev Objects          │
+│ • SVG hill silhouettes (soft curves)         │
+│ • AI-generated dev objects on hills:         │
+│   monitor, terminal, server rack, coffee     │
+│ • Parallax: medium speed (0.35x scroll)      │
+├──────────────────────────────────────────────┤
+│ Layer 3 (FRONT) — Foreground                 │
+│ • SVG grass/plants at bottom edge            │
+│ • Subtle circuit-trace lines in ground       │
+│ • Small floating code symbols (inline SVG)   │
+│ • Parallax: fastest (0.55x scroll)           │
+└──────────────────────────────────────────────┘
 ```
 
-#### [NEW] `components/StatsBar.tsx`
+**Implementation details:**
+- Parallax via `useScroll()` + `useTransform()` from Framer Motion (GPU-accelerated transforms)
+- **Mobile**: Parallax disabled (`window.matchMedia('(max-width: 768px)')`) — static layered background only
+- Light/dark mode: All SVG fills and gradients transition via CSS `transition: fill 0.6s, stop-color 0.6s`
+- AI-generated images stored in `public/illustrations/` directory
+- Stars rendered as small SVG circles with `star-twinkle` CSS animation (random delays)
+- Clouds rendered as AI-generated semi-transparent PNGs with `cloud-drift` animation
 
-A horizontal bar with animated counters showing key metrics that HR can scan instantly:
-- **8** Production Systems Built
-- **5** Enterprise Domains (MES, OEE, CMMS, QC, PDR)
-- **8+** Months Building Real Systems
-- **3** Laravel Versions Mastered
+> [!NOTE]
+> **AI image generation plan**: I'll generate 2-3 illustrations:
+> 1. Cloud/sky background layer (seamless horizontal tile, light mode)
+> 2. Developer world objects on hills (flat vector style: monitor, terminal, coffee cup, server rack, circuit board)
+> 3. Night sky variant with moon glow
+>
+> These will be transparent PNGs placed as `<img>` tags within the parallax layers, with CSS `opacity` transitions between day/night versions.
 
-Dark background with ember accent, numbers animate on scroll using framer-motion.
+##### [MODIFY] [HeroSection.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/HeroSection.tsx)
+**What changes:**
+- **Replace background**: Remove dark industrial background (`grain-overlay`, `grid-lines`) → render `<HeroLandscape />` as absolute-positioned background
+- **Keep ALL text content**: headline (`heroHeadline`), subtitle (`heroSubtitle`), roles badges, project counter — UNCHANGED
+- **Typography colors**: `text-bone` → `text-text-primary`, `text-fog` → `text-text-secondary`
+- **Accent keyword**: Add `<span className="text-accent">` around "SYSTEMS" in headline for emphasis
+- **Replace `<Coordinates />`** industrial decoration → subtle label "Full Stack Developer" with small accent dot
+- **Keep `<Marquee />`** at bottom — update colors only
+- **Keep `<HeroVisual />`** interactive card — restyle (see below)
+- **Add scroll indicator**: "scroll ke bawah" text + animated chevron icon at bottom center
+- **Keep Framer Motion `reveal` animations** — they work great with the new style
 
-#### [NEW] `components/TechStackShowcase.tsx`
+##### [MODIFY] [HeroVisual.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/HeroVisual.tsx)
+**What changes:**
+- **Remove industrial elements**: dashed circle orbits, grid-lines overlay, HUD labels ("MES", "OEE", "QC"), `DataGrid`, `WorkflowNodes`
+- **Redesign as "floating workspace" card**:
+  - Soft `rounded-2xl` card with `shadow-xl` (not sharp borders)
+  - Warm background: `bg-bg-secondary` with subtle gradient
+  - Code editor section with rounded corners and warm syntax highlighting colors
+  - Profile initials "RA" in a soft rounded frame with gentle glow ring (not dashed industrial orbits)
+  - Floating tech badges as rounded pills with soft colors
+- **Keep 3D tilt interaction** — `useMotionValue` / `useSpring` / `useTransform` logic stays identical
+- **Color references**: All hardcoded colors → CSS variable tokens
 
-A visual grid/cloud of technologies with category grouping:
-- **Backend**: Laravel 10/12, PHP 8.1/8.2, MySQL, Laravel Sanctum, REST APIs
-- **Frontend**: Tailwind CSS, Bootstrap, Alpine.js, Blade, Vite, Chart.js
-- **Tools & Integration**: Google Sheets API, Maatwebsite Excel, DomPDF, Yajra DataTables
-- **Architecture**: MVC, Role-Based Access, Multi-step Workflows, State Machines, Domain Modeling
-
-Each tech item shown as a sleek card/badge with subtle hover glow. The section title: "Tech Arsenal" or "Engineering Stack".
-
-#### [NEW] `components/ArchitectureShowcase.tsx`
-
-A section showing your systems architecture capability with:
-- A visual representation of how your systems interconnect (SVG or CSS-based diagram)
-- Shows: User Roles → Workflow Engine → Domain Models → Dashboards → Exports/APIs
-- Interactive hover states revealing details
-- Title: "How I Architect Systems"
-
-#### [NEW] `components/Footer.tsx`
-
-Professional footer with:
-- Name & tagline
-- Quick navigation links
-- Social links (LinkedIn, Email, GitHub placeholder)
-- "Open to opportunities" badge
-- Copyright
-
----
-
-### 3. About Page Rewrite
-
-#### [MODIFY] [about/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/about/page.tsx)
-
-- Change page title/description meta to fullstack developer
-- Rewrite "Professional Positioning" → "Engineering Profile"
-- Rewrite focus areas to emphasize fullstack skills, not just manufacturing
-- Add an **Experience Timeline** section showing project chronology
-- Add a **"What I Bring to Your Team"** section with value propositions for HR:
-  - "I ship production-grade systems, not toy projects"
-  - "I design data models that handle real operational complexity"
-  - "I build role-based workflows that multiple teams use daily"
-  - "I integrate with external services (Google API, Excel, PDF)"
+##### [MODIFY] [TechDecorations.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/TechDecorations.tsx)
+**What changes:**
+- **Remove** industrial exports: `Coordinates`, `SystemLabel`, `DataGrid`, `WorkflowNodes`
+- **Add new exports**:
+  - `DevFloatingIcons`: Small floating developer icons rendered as inline SVG — terminal prompt `>_`, angle brackets `</>`, coffee cup ☕, database cylinder, gear ⚙️. Each has gentle `bob` animation with staggered delays
+  - `ScrollIndicator`: "scroll ke bawah" text + animated bouncing chevron SVG
+- **Keep & restyle**:
+  - `ProjectCounter`: Same data, but rounded card style with `text-accent` values instead of `text-ember`
+  - `StatusDot`: Change from `bg-ember` → `bg-accent` (green/teal)
 
 ---
 
-### 4. Contact Page Enhancement
-
-#### [MODIFY] [contact/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/contact/page.tsx)
-
-- Add a CTA section: "Looking for a fullstack developer who ships real systems?"
-- Add availability status badge (green dot + "Available for hire")
-- Add a simple contact form (name, email, message) — even if frontend-only, it shows UX skill
-- Add download resume button
-
----
-
-### 5. Layout & SEO Updates
-
-#### [MODIFY] [layout.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/layout.tsx)
-
-- Update metadata title: `"Ridha Akbar | Fullstack Developer & Systems Architect"`
-- Update description to emphasize fullstack development and systems architecture
-- Update OpenGraph metadata
-
----
-
-### 6. Skills Data Enhancement
-
-#### [MODIFY] [projects.ts](file:///c:/laragon/www/RidBar%20Portofolio/data/projects.ts)
-
-- Rewrite `skills` array to lead with technical skills (Laravel, PHP, MySQL, REST API) before domain skills
-- Add new skills: `"API Design & Integration"`, `"Database Architecture"`, `"Frontend Development"`
-- Rewrite `timeline` to emphasize engineering progression
-- Rewrite `impactMetrics` with more quantifiable language
-
----
-
-### 7. Resume Page Enhancement
-
-#### [MODIFY] [resume/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/resume/page.tsx)
-
-- Add a "Technical Skills" grid section at the top (before CV preview)
-- Add project count and system domain highlights
-- Make the capability map more visual with progress bars or categorized cards
-
----
-
-### 8. Header Navigation Update
-
-#### [MODIFY] [Header.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Header.tsx)
-
-- Add "Resume" to navigation
-- Reorder: `Home | Projects | About | Resume | Contact`
-- Add a subtle CTA button for "Hire Me" or "Contact" with ember styling
-
----
-
-## User Review Required
+#### Phase 5: Content Sections (Style-only Migration)
 
 > [!IMPORTANT]
-> **Identity Change**: This plan completely repositions you from "Industrial Engineering Fresh Graduate" to "Fullstack Developer & Systems Architect." Your industrial engineering background becomes a *differentiator* ("I understand the domains I build for"), not your primary identity. Are you comfortable with this shift?
+> All content sections below receive **color-only changes**. Zero text/copy/structure modifications. The mapping is consistent across all:
+> - `bg-void` / `bg-surface` → `bg-bg-primary` / `bg-bg-secondary`
+> - `text-bone` → `text-text-primary`
+> - `text-fog` / `text-chalk` → `text-text-secondary`
+> - `text-ember` → `text-accent`
+> - `border-white/10` → `border-border`
+> - `bg-ember` → `bg-cta`
+> - `hover:border-ember` → `hover:border-accent`
+> - Sharp edges → `rounded-xl` / `rounded-lg`
+
+##### [MODIFY] [StatsBar.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/StatsBar.tsx)
+- Color migration (see mapping above)
+- Stat values: `text-ember` → `text-accent`
+- Cards: add `rounded-xl` + subtle `shadow-sm`
+
+##### [MODIFY] [Marquee.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Marquee.tsx)
+- Color migration: `text-fog` → `text-text-secondary`, `bg-ember` dot → `bg-accent` dot
+
+##### [MODIFY] [SectionTitle.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/SectionTitle.tsx)
+- `text-signal` → `text-accent`
+- `text-ink` → `text-text-primary`
+- `text-steel` → `text-text-secondary`
+
+##### [MODIFY] [TechStackShowcase.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/TechStackShowcase.tsx)
+- Color migration + `rounded-xl` cards
+- `hover:border-ember` tech pills → `hover:border-accent`
+
+##### [MODIFY] [FeaturedProjects.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/FeaturedProjects.tsx)
+- Color migration + `rounded-xl` cards
+- Remove `grid-lines` overlay background
+- `hover:border-ember/70` → `hover:border-accent`
+- Project number watermark: `text-white/[0.18]` → `text-text-muted/20`
+
+##### [MODIFY] [ProjectCard.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/ProjectCard.tsx)
+- `bg-white` → `bg-bg-secondary`, `text-ink` → `text-text-primary`, `text-steel` → `text-text-secondary`
+- `hover:border-signal` → `hover:border-accent`
+- `bg-cloud` badge → `bg-bg-elevated`
+
+##### [MODIFY] [ProjectVisual.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/ProjectVisual.tsx)
+- Migrate hardcoded color tokens to theme variables
+- `text-signal` → `text-accent`, `text-amber` → `text-warm`
+- `bg-ink` dark variant → `bg-bg-secondary`
+- Keep all conditional rendering logic and props unchanged
+
+##### [MODIFY] [ArchitectureShowcase.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/ArchitectureShowcase.tsx)
+- Color migration + remove `grid-lines` overlay
+- `text-ember` labels → `text-accent`
+- `border-ember/40` circle → `border-accent/40`
+- `hover:border-ember/70` → `hover:border-accent`
+
+##### [MODIFY] [Footer.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Footer.tsx)
+- Color migration: `bg-surface` → `bg-bg-secondary`, `text-bone` → `text-text-primary`, `text-fog` → `text-text-secondary`
+- Social icon hover: `hover:border-ember` → `hover:border-accent`
+- Rounded icon buttons: add `rounded-lg`
+
+##### [MODIFY] [PdfDownloadButton.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/PdfDownloadButton.tsx)
+- `bg-ink` → `bg-cta`, `hover:bg-signal` → `hover:bg-cta-hover`
+- Add `rounded-lg`
+
+---
+
+#### Phase 6: All Pages (Color Migration)
 
 > [!IMPORTANT]
-> **GitHub Repository**: Your `github` field is empty. Do you have a GitHub profile to link? Even if the manufacturing repos are private, having a GitHub link with any public activity is critical for tech hiring. If you don't have one, I'll add a placeholder with a note.
+> **Every page file** receives the same consistent color token swap. No content changes whatsoever.
 
-> [!WARNING]
-> **Metrics & Numbers**: I'll use conservative, honest metrics (e.g., "8 production systems", "5 enterprise domains"). I will NOT fabricate fake numbers like "reduced downtime by 40%." However, if you have any real measurements, please share them — they would significantly strengthen the portfolio.
+##### [MODIFY] [page.tsx (Home)](file:///c:/laragon/www/RidBar%20Portofolio/app/page.tsx)
+- `bg-void` → `bg-bg-primary`
 
-## Open Questions
+##### [MODIFY] [about/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/about/page.tsx)
+- Full color migration (see consistent mapping above)
+- `bg-void text-chalk` → `bg-bg-primary text-text-primary`
+- `bg-surface` sections → `bg-bg-secondary`
+- `bg-void/60` cards → `bg-bg-elevated`
+- `text-ember` eyebrows/icons → `text-accent`
+- All content, grid layout, focus areas, timeline — **UNCHANGED**
 
-1. **Do you have a professional photo?** The hero currently shows "RA" initials. A real photo dramatically increases HR trust. If you have one, tell me the path.
+##### [MODIFY] [contact/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/contact/page.tsx)
+- Full color migration
+- Form inputs: `bg-void` → `bg-bg-primary`, `focus:border-ember` → `focus:border-accent`
+- CTA: `bg-ember` → `bg-cta`, `bg-bone` submit button → `bg-cta text-white`
+- All form fields, labels, placeholders, social cards — **UNCHANGED**
 
-2. **GitHub profile URL?** Even a profile with a few repos or contributions makes a difference.
+##### [MODIFY] [resume/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/resume/page.tsx)
+- Full color migration
+- `text-ember` stat values → `text-accent`
+- `border-ember` left-border on projects → `border-accent`
+- `bg-ember` skill bars → `bg-accent`
+- All content — **UNCHANGED**
 
-3. **Any real impact metrics?** Example: "System used by X operators daily" or "Reduced report generation from X hours to Y minutes."
+##### [MODIFY] [projects/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/projects/page.tsx)
+- `bg-cloud` → `bg-bg-primary`
+- Content — **UNCHANGED**
 
-4. **Your actual work experience timeline?** Were these 8 systems built during an internship, freelance, or full-time position? Dates would help the Experience section.
+##### [MODIFY] [projects/[slug]/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/projects/%5Bslug%5D/page.tsx)
+- Migrate existing light-ish tokens to CSS variable system:
+  - `bg-cloud` → `bg-bg-primary`
+  - `bg-white` → `bg-bg-secondary`
+  - `text-ink` → `text-text-primary`
+  - `text-steel` → `text-text-secondary`
+  - `text-signal` → `text-accent`
+  - `border-line/15` → `border-border`
+  - `border-amber/40` → `border-warm/40`
+- Now respects day/night toggle — **UNCHANGED** structure
 
-5. **Are you targeting specific company types?** (Startups vs Enterprise, Remote vs On-site, Indonesia vs International?)
+##### [MODIFY] [portfolio-pdf/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/portfolio-pdf/page.tsx)
+- Light color migration for screen view
+- **Print styles stay untouched** (print CSS is separate concern)
+
+---
+
+## Implementation Order
+
+```mermaid
+graph TD
+    A["Phase 1: ThemeProvider + ThemeToggle"] --> B["Phase 2: globals.css + tailwind.config + layout.tsx"]
+    B --> C["Phase 3: Header + ThemeToggle integration"]
+    C --> D["Phase 4a: Generate AI illustrations"]
+    D --> E["Phase 4b: HeroLandscape + HeroSection + HeroVisual + TechDecorations"]
+    E --> F["Phase 5: Content Sections — StatsBar, Marquee, SectionTitle, TechStack, FeaturedProjects, ProjectCard, ProjectVisual, Architecture, Footer, PdfDownloadButton"]
+    F --> G["Phase 6: All Pages — color migration"]
+    G --> H["Phase 7: Polish, test, verify"]
+```
+
+### Estimated touch count:
+- **2 new files** (ThemeProvider, ThemeToggle, HeroLandscape)
+- **~20 modified files** (all components + all pages)
+- **2-3 AI-generated illustration assets** (stored in `public/illustrations/`)
+- **0 data files changed** (`profile.ts`, `projects.ts` untouched)
 
 ---
 
 ## Verification Plan
 
-### Manual Verification
-- Run `npm run dev` and visually inspect all pages
-- Test all navigation links and anchor scrolls
-- Verify responsive design on mobile viewport
-- Check that all screenshots load correctly
-- Test framer-motion animations
-- Verify SEO metadata in browser dev tools
+### Automated Tests
+```bash
+npm run build
+```
+- Ensures no TypeScript/import errors after all changes
+- Verifies all pages compile correctly with new theme system
 
-### Build Verification
-- Run `npm run build` to ensure no TypeScript or build errors
-- Verify all static paths generate correctly
+### Manual Verification
+- [ ] Toggle day → night mode: verify smooth 0.6s transition across ALL sections
+- [ ] Toggle state persists on page reload (`localStorage` check)
+- [ ] First visit with system dark-mode preference → opens in dark mode
+- [ ] Hero parallax scroll: 3 layers move at different speeds (0.15x / 0.35x / 0.55x)
+- [ ] Hero parallax disabled on mobile (< 768px) — static layered background only
+- [ ] Hero landscape: clouds drift in light mode, stars twinkle in dark mode
+- [ ] All text readable in both modes (sufficient contrast)
+- [ ] Mobile: hamburger menu works, theme toggle accessible
+- [ ] All navigation links still functional
+- [ ] All project detail pages render correctly in both themes
+- [ ] Resume PDF download still works
+- [ ] Contact form visible and styled correctly in both themes
+- [ ] Portfolio-PDF print view unaffected
+
+### Performance Targets
+- [ ] Lighthouse performance score ≥ 90 on mobile
+- [ ] AI-generated illustration PNGs optimized (compressed, reasonable file size)
+- [ ] Parallax uses only `transform: translateY()` (GPU-accelerated, no layout thrash)
+- [ ] `will-change: transform` on parallax layers
+- [ ] Theme transitions use CSS transitions only, not JS animation frames
+- [ ] No Cumulative Layout Shift from theme toggle
+
+---
+
+## Technical Notes
+
+> [!NOTE]
+> **Parallax on mobile**: Disabled on devices ≤ 768px wide. Mobile gets a static layered background with the same illustration but no scroll-driven movement. This prevents janky scrolling on touch devices.
+
+> [!NOTE]
+> **Hybrid illustration approach**: Small animated decorations (floating `</>`, `>_`, coffee cup, gear icons) are inline SVG components — they respond instantly to theme changes via `currentColor` and CSS variables. Larger scenic elements (clouds, hills, dev world objects) are AI-generated PNG images swapped via CSS `opacity` transitions between day/night versions.
+
+> [!NOTE]
+> **Legacy token compatibility**: To minimize risk during migration, the Tailwind config will include backward-compatible aliases (e.g., `ink` → `var(--text-primary)`, `cloud` → `var(--bg-primary)`) so any hardcoded references in `[slug]/page.tsx` or `portfolio-pdf/page.tsx` still resolve correctly during the transition.
+
+> [!TIP]
+> **Zero data-layer changes**: Files `data/profile.ts` and `data/projects.ts` are NOT modified. All changes are purely in the presentation layer (components + styles + config).

@@ -11,7 +11,7 @@ const stats = [
 
 export function StatsBar() {
   return (
-    <section className="border-y border-white/10 bg-void px-5 py-8 text-chalk">
+    <section className="border-y border-border bg-bg-primary px-5 py-8 text-text-primary">
       <div className="mx-auto grid max-w-7xl gap-3 md:grid-cols-4">
         {stats.map((stat, index) => (
           <motion.div
@@ -20,10 +20,10 @@ export function StatsBar() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.45, delay: index * 0.07 }}
-            className="border border-white/10 bg-white/[0.03] p-5"
+            className="rounded-xl border border-border bg-bg-secondary p-5 shadow-sm"
           >
-            <p className="font-display text-6xl leading-none text-ember md:text-7xl">{stat.value}</p>
-            <p className="mt-3 text-xs font-bold uppercase leading-5 text-fog">{stat.label}</p>
+            <p className="font-display text-6xl font-black leading-none text-accent md:text-7xl">{stat.value}</p>
+            <p className="mt-3 text-xs font-bold uppercase leading-5 text-text-secondary">{stat.label}</p>
           </motion.div>
         ))}
       </div>

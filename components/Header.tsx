@@ -5,9 +5,10 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const nav = [
-  { href: "/about", label: "About" },
+  { href: "/", label: "Home" },
   { href: "/#projects", label: "Projects" },
-  { href: "/about#experience", label: "Experience" },
+  { href: "/about", label: "About" },
+  { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -43,6 +44,12 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="border border-ember/60 bg-ember px-4 py-2 text-[11px] font-black uppercase text-bone transition hover:bg-ember-dark"
+          >
+            Hire Me
+          </Link>
         </nav>
 
         <button
@@ -72,6 +79,13 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="mt-3 bg-ember px-4 py-3 text-center text-xs font-black uppercase text-bone"
+            onClick={() => setOpen(false)}
+          >
+            Hire Me
+          </Link>
         </nav>
       </div>
     </header>

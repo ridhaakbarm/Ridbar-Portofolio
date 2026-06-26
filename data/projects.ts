@@ -585,73 +585,73 @@ export const additionalProjects = projects.filter((project) => project.status ==
 
 export const skills = [
   {
-    name: "Laravel / PHP",
-    context: "Built internal operations applications across Laravel 10 and Laravel 12, with role-based workflows, dashboards, exports, and integrations."
+    name: "Laravel Engineering",
+    context: "Built production applications across Laravel 10 and Laravel 12 with authentication, authorization, services, jobs, commands, exports, and dashboard views."
+  },
+  {
+    name: "PHP Backend Development",
+    context: "Implemented business logic, controller flows, service layers, validation, reporting utilities, and operational automation using PHP 8.1 and PHP 8.2."
+  },
+  {
+    name: "Database Architecture",
+    context: "Designed MySQL structures for work orders, OEE reports, PM checks, tickets, samples, daily reports, inspections, SPK, lots, schedules, and users."
+  },
+  {
+    name: "API Design & Integration",
+    context: "Built lookup endpoints, queue updates, report flows, Google Sheets synchronization, import/export features, and operational integration points."
+  },
+  {
+    name: "Frontend Development",
+    context: "Delivered operational interfaces with Tailwind CSS, Bootstrap, Blade, Alpine.js, Vite, Chart.js, and dashboard-first UI patterns."
+  },
+  {
+    name: "Role-Based Workflows",
+    context: "Modeled admin, operator, leader, manager, QC, verifier, PPIC, technician, and supervisor permissions around real team responsibilities."
+  },
+  {
+    name: "State Machines & Approvals",
+    context: "Built multi-step workflows for approvals, rejections, revisions, ticket states, PM verification, sample dispatch, and production execution."
+  },
+  {
+    name: "Reporting & Exports",
+    context: "Implemented Excel exports, PDF generation, monitoring boards, weekly/monthly reports, machine detail exports, and KPI review surfaces."
   },
   {
     name: "Manufacturing Systems",
-    context: "Implemented in CMB production execution, OEE monitoring, PDR daily reporting, color-change workflow, and mixing method control."
-  },
-  {
-    name: "MySQL Data Modeling",
-    context: "Designed relational structures for work orders, OEE reports, PM checks, tickets, samples, daily reports, inspections, preparations, SPK, lots, and production schedules."
-  },
-  {
-    name: "Dashboard Analytics",
-    context: "Delivered monitoring and analysis views for OEE, daily production reports, CMB QC/machine monitoring, K-Maint monitoring, and Lab QC queues."
-  },
-  {
-    name: "Workflow Digitalization",
-    context: "Built approval, verification, dispatch, ticket, PM, daily reporting, cleaning, preparation, and production execution workflows."
-  },
-  {
-    name: "Traceability And Lot Tracking",
-    context: "Implemented traceability flows across CMB lead time/output tracking, OEE SPK lookup, Mixing SPK/lot history, and PDR lot/product reporting."
-  },
-  {
-    name: "Reporting And Export",
-    context: "Excel exports are present in CMB, OEE, K-Maint, Lab Dispatch, Mixing, and AM; PDR provides weekly/monthly reporting views."
-  },
-  {
-    name: "Role-Based Operations",
-    context: "Projects include admin, operator, leader, manager, QC, verifier, PPIC, technician, and supervisor workflow boundaries."
-  },
-  {
-    name: "Integration And Automation",
-    context: "Google Sheet sync in CMB/OEE, console recalculation in OEE, dispatch cleanup in Lab, and scheduling generation in K-Maint."
+    context: "Applied software engineering to MES-like execution, OEE monitoring, CMMS-style maintenance, QC dispatch, daily reporting, and traceability domains."
   }
 ];
 
 export const impactMetrics = [
-  "Centralized production execution and QC visibility",
-  "Improved OEE, downtime, and production KPI review",
-  "Standardized maintenance ticket and PM follow-up",
-  "Faster lab sample queue coordination and assignment",
-  "Reduced manual daily reporting consolidation",
-  "Improved traceability across work orders, SPK, lots, samples, and process steps",
-  "Better operational documentation through photos, approvals, exports, and history logs",
-  "Stronger decision support for supervisors, QC, PPIC, maintenance, and production teams"
+  "Built 8 production-grade systems across MES, OEE, maintenance, QC, reporting, cleaning, and mixing workflows",
+  "Designed role-based applications used by admins, operators, leaders, QC, PPIC, technicians, supervisors, and verifiers",
+  "Modeled complex relational data around work orders, samples, tickets, assets, schedules, lots, reports, and approvals",
+  "Delivered dashboards, monitoring boards, and analysis views for daily operational decision-making",
+  "Implemented Excel exports, PDF generation, Google Sheets sync, import flows, and REST-style lookup endpoints",
+  "Built approval, rejection, revision, verification, ticket, queue, and dispatch workflows",
+  "Connected industrial engineering domain knowledge with practical fullstack implementation",
+  "Shipped real internal systems instead of portfolio-only demo projects"
 ];
 
 export const timeline = [
   {
-    phase: "Systems",
-    title: "Built internal manufacturing applications",
-    detail: "Developed operational systems across production execution, OEE monitoring, maintenance workflows, lab dispatch, daily reporting, color-change cleaning, and mixing process control."
+    phase: "Foundation",
+    title: "Turned industrial workflows into software models",
+    detail: "Mapped real production, QC, maintenance, lab, and reporting workflows into database structures, user roles, forms, dashboards, and state transitions."
   },
   {
-    phase: "Operations",
-    title: "Focused on workflow visibility",
-    detail: "Designed tools that help teams track work orders, samples, tickets, machine checks, lots, approvals, reports, and production follow-up from one shared operational view."
+    phase: "Backend",
+    title: "Built Laravel systems with real business logic",
+    detail: "Implemented authentication, authorization, work order flows, ticket states, approval handling, recalculation commands, exports, imports, and integration utilities."
   },
   {
-    phase: "Dashboards",
-    title: "Created decision-support views",
-    detail: "Built dashboards, monitoring boards, exportable reports, and analysis pages for supervisors, QC, PPIC, maintenance, technicians, operators, and production leaders."
+    phase: "Frontend",
+    title: "Delivered dashboards and operational interfaces",
+    detail: "Created monitoring boards, KPI views, queue screens, report tables, forms, charts, and responsive interfaces for daily users across multiple roles."
   },
   {
-    phase: "Impact",
-    title: "Improved operational discipline",
-    detail: "Standardized daily reporting, ticket follow-up, lab queues, PM execution, traceability, approval flows, and production documentation across internal teams."
+    phase: "Architecture",
+    title: "Scaled patterns across 8 production systems",
+    detail: "Repeated proven patterns for role-based access, domain modeling, workflow orchestration, exports, dashboarding, and system integration across enterprise-like domains."
   }
 ];

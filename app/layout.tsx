@@ -6,13 +6,13 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-display" });
 
 export const metadata: Metadata = {
-  title: "Ridha Akbar | Creative-Tech Operations Portfolio",
+  title: "Ridha Akbar | Fullstack Developer & Systems Architect",
   description:
-    "A cinematic portfolio of manufacturing systems, Laravel applications, operational dashboards, and industrial workflow tools by Muhammad Ridha Akbar.",
+    "Fullstack developer and systems architect portfolio covering Laravel, PHP, MySQL, REST APIs, manufacturing systems, dashboards, workflows, and integrations.",
   openGraph: {
-    title: "Ridha Akbar | Creative-Tech Operations Portfolio",
+    title: "Ridha Akbar | Fullstack Developer & Systems Architect",
     description:
-      "Manufacturing digitalization systems, OEE dashboards, maintenance workflows, lab dispatch, and process improvement tools.",
+      "Production-grade fullstack systems built with Laravel, PHP, MySQL, dashboards, APIs, exports, and role-based workflows.",
     type: "website"
   }
 };

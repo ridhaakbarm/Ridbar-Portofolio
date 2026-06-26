@@ -1,342 +1,221 @@
-# Dark Luxury Editorial Portfolio — Full Redesign
+# Portfolio Audit & Transformation: Fullstack Developer & Systems Architect
 
-Transform the existing light-themed corporate portfolio into a **cinematic, dark editorial creative-tech portfolio** inspired by modern creative agency websites and poster-style layouts.
+## 🔍 Senior HR Audit — Honest Assessment
 
-## Current State
+I reviewed your portfolio as a Senior HR/Technical Recruiter at a mid-to-large IT company hiring for **Fullstack Developer** and **Systems Architect** roles. Here is my brutally honest assessment:
 
-The project is a **Next.js 14 + Tailwind CSS 3 + TypeScript** app at `c:\laragon\www\RidBar Portofolio`. It currently uses:
-- Light color scheme (`#eef3f5` cloud bg, `#101418` ink text, `#23c6a5` signal accent)
-- Standard corporate layout with `Inter` font
-- Existing components: [Header.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Header.tsx), [ProjectCard.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/ProjectCard.tsx), [ProjectVisual.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/ProjectVisual.tsx), [SectionTitle.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/SectionTitle.tsx)
-- Rich project data in [projects.ts](file:///c:/laragon/www/RidBar%20Portofolio/data/projects.ts) (8 projects, screenshots, tech stacks, etc.)
-- Sub-pages: `/about`, `/contact`, `/projects`, `/projects/[slug]`, `/portfolio-pdf`, `/resume`
-- 55+ real screenshot assets in `/public/screenshots/`
+### ❌ What Would Make Me Pass on This Candidate
 
-> [!IMPORTANT]
-> **This is a complete visual overhaul of the landing page only.** Sub-pages (`/about`, `/contact`, `/projects/[slug]`) will NOT be modified in this phase. They will continue to work but will retain their current styling until a future phase.
+| Issue | HR Impact |
+|---|---|
+| **Title says "Industrial Engineering Fresh Graduate"** | Instant disqualification for software roles. HR filters will skip this. |
+| **No clear "Fullstack Developer" or "Systems Architect" positioning** | You built 8 production systems but your portfolio doesn't say "developer" |
+| **No GitHub link** | Empty `github: ""` — this is a **dealbreaker** for any tech hire |
+| **No tech stack overview on landing page** | I have to dig deep to find you know Laravel, PHP, MySQL, JS, REST APIs |
+| **No architecture diagrams** | You claim systems architecture but show zero diagrams |
+| **Missing Skills section on homepage** | The About page has skills, but most HR never navigate that far |
+| **No "years of experience" or project count metrics** | HR needs quick-scan numbers |
+| **Hero says "BUILDING SYSTEMS FOR REAL OPERATIONS"** | Too vague. Could be an operations manager, not a developer |
+| **Roles show "OPERATIONS SYSTEM BUILDER"** | This is not a recognized job title in tech |
+| **No footer with quick links, copyright, or social proof** | Looks unfinished |
+| **Contact page is minimal** | No contact form, no CTA, no urgency |
+| **No testimonials or collaboration proof** | No social proof at all |
+| **About page title: "Industrial Engineering Fresh Graduate"** | Reinforces non-tech identity |
+| **Resume page embeds PDF but doesn't highlight dev skills** | Missed opportunity |
 
-## User Review Required
+### ✅ What's Actually Impressive (But Hidden)
 
-> [!WARNING]
-> **Framer Motion dependency**: The plan adds `framer-motion` (~40KB gzipped) for premium animations. This is the standard React animation library and provides far superior results to CSS-only animations for staggered reveals, parallax, and scroll-triggered effects. If you prefer CSS-only animations to avoid the dependency, let me know.
+| Strength | What HR Should See |
+|---|---|
+| **8 real production systems** in manufacturing (not toy projects) | This beats 90% of junior portfolios |
+| **Laravel 10 & 12, PHP 8.1/8.2** | Solid backend framework mastery |
+| **Complex domain modeling** (work orders, OEE, PM, tickets, QC) | This IS systems architecture |
+| **Role-based access, approval workflows, multi-step state machines** | Advanced backend patterns |
+| **Excel exports, PDF generation, Google Sheets API, REST APIs** | Integration skills |
+| **Real screenshots** of production dashboards | Proof of delivery |
+| **MES, OEE, CMMS concepts** | Deep domain knowledge |
+| **Tailwind CSS, Bootstrap, Alpine.js, Chart.js, Vite** | Frontend competence |
 
-> [!IMPORTANT]
-> **Tailwind CSS version**: Your project uses Tailwind CSS v3.4.4. The plan will use Tailwind v3 syntax. You mentioned "responsive Tailwind CSS styling" — confirmed.
+---
 
-> [!IMPORTANT]
-> **Font choice**: The plan uses **"Bebas Neue"** (bold condensed display) for headlines + **"Inter"** (already installed) for body text. Bebas Neue is free on Google Fonts and delivers the editorial poster aesthetic you described. Alternative: "Oswald" if you prefer slightly softer condensed type.
+## 🎯 Repositioning Strategy
 
-## Open Questions
-
-> [!IMPORTANT]
-> **Profile image**: You mentioned a "central visual area for a profile photo or abstract 3D object." I will create an **abstract geometric placeholder** (CSS/SVG-based industrial wireframe visual) that you can later replace with your own photo. Is this approach acceptable, or do you want me to generate an AI placeholder image instead?
-
-> [!IMPORTANT]  
-> **Featured projects in hero preview**: You listed 4 specific projects (CMB, OEE Dashboard, Production Scheduling System, Color Formulation Tool). However, your existing data has different project names. I will:
-> - Map **CMB** → existing `cmb-manufacturing-execution` project
-> - Map **OEE Dashboard** → existing `oee-production-monitoring` project  
-> - **Create new entries** for "Production Scheduling System" and "Color Formulation Tool" in the featured projects section (these don't exist in current data)
-> 
-> Should I add these as new projects to `projects.ts`, or only display them as static preview cards on the landing page?
+Transform from **"Industrial Engineering Fresh Graduate"** → **"Fullstack Developer & Systems Architect"** who has built 8 enterprise-grade production systems.
 
 ---
 
 ## Proposed Changes
 
-### Design System — Colors, Typography, Tokens
-
-The entire visual identity shifts from light corporate to dark luxury editorial.
-
-#### [MODIFY] [tailwind.config.ts](file:///c:/laragon/www/RidBar%20Portofolio/tailwind.config.ts)
-
-- **New color palette**:
-  | Token | Value | Usage |
-  |-------|-------|-------|
-  | `void` | `#0A0A0A` | Page background — near-black |
-  | `surface` | `#111111` | Card/section backgrounds |
-  | `elevated` | `#1A1A1A` | Elevated panels, nav |
-  | `muted` | `#2A2A2A` | Borders, subtle elements |
-  | `dust` | `#666666` | Secondary text |
-  | `fog` | `#999999` | Tertiary text |
-  | `chalk` | `#E8E4E0` | Primary text — warm off-white |
-  | `bone` | `#F5F2EE` | Headline text — bright off-white |
-  | `ember` | `#DC2626` | Accent red — strong, vibrant |
-  | `ember-dark` | `#991B1B` | Red hover/active state |
-
-- **New font families**: `display` (Bebas Neue) and `body` (Inter)
-- **Custom keyframes**: `marquee`, `reveal-up`, `fade-in`, `pulse-glow`
-- **Extended spacing and screen breakpoints** for cinematic layouts
-
----
-
-#### [MODIFY] [globals.css](file:///c:/laragon/www/RidBar%20Portofolio/app/globals.css)
-
-Complete rewrite:
-- Dark color scheme (`color-scheme: dark`)
-- Background `#0A0A0A` 
-- Smooth scrolling
-- Custom selection color (red accent)
-- Grid-line utility class (subtle dark grid overlay)
-- Marquee animation keyframes
-- Staggered animation classes (`.anim-reveal-1` through `.anim-reveal-8`)
-- Custom scrollbar styling (thin, dark)
-- Typography utility classes for the condensed display font
-- Noise/grain texture overlay utility
-
----
-
-### Layout — Root Layout
-
-#### [MODIFY] [layout.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/layout.tsx)
-
-- Import **Bebas Neue** alongside Inter from `next/font/google`
-- Set CSS variables for both font families on `<html>`
-- Update metadata title/description for SEO
-- Add dark background class to `<body>`
-
----
-
-### Navigation — Redesigned Header
-
-#### [MODIFY] [Header.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Header.tsx)
-
-Complete redesign:
-- **Dark transparent background** with backdrop blur
-- **Left**: "RIDHA AKBAR" name in condensed caps
-- **Right**: "About", "Projects", "Experience", "Contact" — minimal, spaced, uppercase micro-text
-- **Mobile**: Hamburger menu with slide-in panel
-- Sticky behavior with subtle border-bottom on scroll
-- No PDF download button in main nav (moved elsewhere)
-
----
-
-### Hero Section — New Cinematic Component
-
-#### [NEW] [HeroSection.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/HeroSection.tsx)
-
-The centerpiece of the redesign. Full-viewport cinematic hero with:
-
-**Layout (Desktop)**:
-```
-┌──────────────────────────────────────────────────────────────────┐
-│ NAV: RIDHA AKBAR                    About  Projects  Experience │
-├──────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  ┌─ micro labels ─┐        ┌──────────────────┐                 │
-│  │ SYS.001         │        │                  │   ┌──────────┐ │
-│  │ 48°51'N         │        │  PROFILE IMAGE   │   │  VIEW    │ │
-│  └─────────────────┘        │  / ABSTRACT 3D   │   │ PROJECTS │ │
-│                              │                  │   │  (red    │ │
-│  BUILDING SYSTEMS            │  (parallax)      │   │  circle) │ │
-│  FOR REAL OPERATIONS.        │                  │   └──────────┘ │
-│                              └──────────────────┘                │
-│  I design and build digital tools that help                      │
-│  manufacturing teams monitor, control, and                       │
-│  improve production.                                             │
-│                                                                  │
-│  MUHAMMAD RIDHA AKBAR                                            │
-│  ────────────────────                                            │
-│  OPERATIONS SYSTEM BUILDER · LARAVEL DEVELOPER · INDUSTRIAL ENG │
-│                                                                  │
-│  ┌─ counter ─┐  ┌─ counter ─┐  ┌─ counter ─┐                   │
-│  │ 08        │  │ 2024—25   │  │ ACTIVE    │                    │
-│  │ SYSTEMS   │  │ PERIOD    │  │ STATUS    │                    │
-│  └───────────┘  └───────────┘  └───────────┘                    │
-│                                                                  │
-├──────────────────────────────────────────────────────────────────┤
-│ ◀ Laravel • Manufacturing Systems • MES • OEE Dashboard • ... ▶ │
-└──────────────────────────────────────────────────────────────────┘
-```
-
-**Elements**:
-- Headline: `"BUILDING SYSTEMS\nFOR REAL OPERATIONS."` in Bebas Neue, ~8-12vw size, bone/chalk color
-- Subtitle: Smaller Inter text below headline
-- Name: `"MUHAMMAD RIDHA AKBAR"` in tracked uppercase, muted
-- Role labels: Three pill/tag elements with borders
-- **Red circular "VIEW PROJECTS" button**: ~120px circle, absolute positioned, with hover scale/glow animation
-- **Central visual**: Placeholder div with CSS geometric pattern (concentric circles, grid lines, rotating elements) — clearly marked with comments for replacement
-- **Decorative elements**:
-  - Grid overlay (faint lines across hero)
-  - Coordinate labels: `"48°51'N 2°21'E"`, `"SYS.001"` positioned in corners
-  - System label: `"OPERATIONS // 2024"` 
-  - Project counters: `"08 SYSTEMS BUILT"`, `"2024—25"`, `"STATUS: ACTIVE"`
-  - Horizontal rules at strategic positions
-  - Small blinking dot indicators
-- **Marquee strip**: Bottom of hero, full-width scrolling text
-- **Manufacturing visual references**: Small dashboard mock cards, workflow node diagram (CSS-drawn), data grid pattern
-
-**Animations** (Framer Motion):
-- Headline: Clip-path reveal from bottom, 0.6s ease-out, staggered per line
-- Subtitle: Fade-in + translate-up, 0.4s delay
-- Name + role labels: Stagger from left, 0.1s between each
-- Decorative elements: Fade in with 0.8-1.2s delays
-- Central visual: Subtle parallax on mouse move (`useMotionValue` + `useTransform`)
-- Red button: Scale pulse on idle, magnetic hover effect
-- Marquee: Infinite CSS translateX animation
-
----
-
-### Featured Projects Section — New Component
-
-#### [NEW] [FeaturedProjects.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/FeaturedProjects.tsx)
-
-Below the hero — editorial project preview cards:
-
-**Layout**:
-```
-┌──────────────────────────────────────────────────────────────────┐
-│  SELECTED WORK                                    04 PROJECTS    │
-│  ═══════════════                                                 │
-│                                                                  │
-│  ┌─────────────────────────┐  ┌─────────────────────────────┐   │
-│  │ 01                      │  │ 02                          │   │
-│  │ CMB                     │  │ OEE DASHBOARD               │   │
-│  │ Computerized            │  │ Machine performance,        │   │
-│  │ Monitoring Board        │  │ downtime, and operational   │   │
-│  │                         │  │ efficiency analytics        │   │
-│  │ [screenshot preview]    │  │                             │   │
-│  │                         │  │ [screenshot preview]        │   │
-│  │ Laravel · MySQL · Vite  │  │ Laravel · Chart.js · MySQL  │   │
-│  └─────────────────────────┘  └─────────────────────────────┘   │
-│                                                                  │
-│  ┌─────────────────────────┐  ┌─────────────────────────────┐   │
-│  │ 03                      │  │ 04                          │   │
-│  │ PRODUCTION SCHEDULING   │  │ COLOR FORMULATION           │   │
-│  │ Mixer and extruder      │  │ Formula adjustment and      │   │
-│  │ scheduling workflow     │  │ color estimation system     │   │
-│  └─────────────────────────┘  └─────────────────────────────┘   │
-│                                                                  │
-└──────────────────────────────────────────────────────────────────┘
-```
-
-**Each card**:
-- Large project number (`01`, `02`, etc.) in condensed font
-- Project title in Bebas Neue
-- Description in Inter
-- Screenshot preview using existing `/public/screenshots/` assets (where available)
-- Tech stack tags at bottom
-- Hover: card lifts, border glows red, screenshot zooms slightly
-- Click: navigates to `/projects/[slug]`
-
-**Scroll animation** (Framer Motion):
-- Cards animate in as they enter viewport (staggered fade-up)
-
----
-
-### Marquee Component — Reusable
-
-#### [NEW] [Marquee.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Marquee.tsx)
-
-A reusable infinite horizontal scrolling text component:
-- Takes an array of text items
-- Renders them duplicated for seamless loop
-- Uses CSS `@keyframes` for smooth performance
-- Separator: `•` dot between items
-- Styled: uppercase, tracked, small font, muted color with red accent dots
-- Pausable on hover
-
----
-
-### Abstract Visual Placeholder
-
-#### [NEW] [HeroVisual.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/HeroVisual.tsx)
-
-CSS/SVG-based industrial placeholder:
-- Concentric circles with dashed borders (machine/gauge feel)
-- Small data labels rotating around the circle
-- Grid overlay within the visual area
-- Subtle red accent pulse
-- Central placeholder for profile image (clearly commented: `{/* REPLACE: Add your profile photo here */}`)
-- Parallax wrapper that responds to mouse position
-
----
-
-### Manufacturing Decorative Elements
-
-#### [NEW] [TechDecorations.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/TechDecorations.tsx)
-
-Collection of small decorative sub-components:
-- `<Coordinates />` — small lat/lon label
-- `<SystemLabel />` — `"SYS.001"` style label
-- `<StatusDot />` — blinking green/red indicator
-- `<DataGrid />` — small CSS grid pattern (looks like machine data)
-- `<ProjectCounter count={8} />` — styled counter
-- `<WorkflowNodes />` — small inline workflow diagram (circles + lines)
-
-All used within the hero and sparingly in the projects section.
-
----
-
-### Profile Data Update
+### 1. Profile & Identity Rebranding
 
 #### [MODIFY] [profile.ts](file:///c:/laragon/www/RidBar%20Portofolio/data/profile.ts)
 
-Add new fields:
-- `heroHeadline`: `"BUILDING SYSTEMS\nFOR REAL OPERATIONS."`
-- `heroSubtitle`: `"I design and build digital tools that help manufacturing teams monitor, control, and improve production."`
-- `roles`: `["OPERATIONS SYSTEM BUILDER", "LARAVEL DEVELOPER", "INDUSTRIAL ENGINEER"]`
-- `marqueeItems`: `["Laravel", "Manufacturing Systems", "MES", "OEE Dashboard", "Automation", "Production Monitoring", "MySQL"]`
-- `socialLinks` placeholder object (GitHub, LinkedIn, email)
-- `resumeLink` placeholder string
-- Comments marking all customizable fields
+Complete identity rewrite:
+
+- **title**: `"Industrial Engineering Fresh Graduate"` → `"Fullstack Developer & Systems Architect"`
+- **roleFocus**: → `"Laravel · PHP · MySQL · REST APIs · Enterprise Systems"`
+- **headline**: Rewrite to emphasize building 8 production systems, fullstack development, system design
+- **heroHeadline**: `"BUILDING SYSTEMS\nFOR REAL OPERATIONS."` → `"I BUILD SYSTEMS\nTHAT RUN FACTORIES."`
+- **heroSubtitle**: Emphasize "fullstack developer" with 8 enterprise systems in production
+- **roles**: `["FULLSTACK DEVELOPER", "SYSTEMS ARCHITECT", "LARAVEL ENGINEER"]`
+- **marqueeItems**: Add `"PHP"`, `"REST API"`, `"Tailwind CSS"`, `"Vite"`, `"Alpine.js"`, `"Chart.js"`, `"Role-Based Access"` alongside existing items
+- **summary**: Rewrite with fullstack/architect language
+- **availability**: `"Open to fullstack developer, systems architect, backend engineer, and software engineering roles."`
 
 ---
 
-### Landing Page — Complete Rewrite
+### 2. Homepage — Add Missing Sections
 
 #### [MODIFY] [page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/page.tsx)
 
-The entire landing page is recomposed:
+Add the following new sections between HeroSection and FeaturedProjects, plus a Footer:
 
-```tsx
-<main>
-  <Header />              {/* Redesigned dark nav */}
-  <HeroSection />          {/* Full-screen cinematic hero */}
-  <FeaturedProjects />     {/* 4 editorial project cards */}
-</main>
+```
+Header → Hero → StatsBar → TechStack → FeaturedProjects → ArchitectureShowcase → Footer
 ```
 
-The existing skills, impact, timeline, and footer sections are **temporarily removed** from the landing page to keep it focused and editorial. They can be re-added in future phases or moved to the `/about` page.
+#### [NEW] `components/StatsBar.tsx`
 
-> [!WARNING]
-> **Sections removed from landing page**: Skills grid, Impact metrics, Delivery approach, and the bottom 3-card dark section. These still exist in the codebase and can be restored. The goal is a focused, cinematic landing page, not a long scrolling corporate page.
+A horizontal bar with animated counters showing key metrics that HR can scan instantly:
+- **8** Production Systems Built
+- **5** Enterprise Domains (MES, OEE, CMMS, QC, PDR)
+- **8+** Months Building Real Systems
+- **3** Laravel Versions Mastered
+
+Dark background with ember accent, numbers animate on scroll using framer-motion.
+
+#### [NEW] `components/TechStackShowcase.tsx`
+
+A visual grid/cloud of technologies with category grouping:
+- **Backend**: Laravel 10/12, PHP 8.1/8.2, MySQL, Laravel Sanctum, REST APIs
+- **Frontend**: Tailwind CSS, Bootstrap, Alpine.js, Blade, Vite, Chart.js
+- **Tools & Integration**: Google Sheets API, Maatwebsite Excel, DomPDF, Yajra DataTables
+- **Architecture**: MVC, Role-Based Access, Multi-step Workflows, State Machines, Domain Modeling
+
+Each tech item shown as a sleek card/badge with subtle hover glow. The section title: "Tech Arsenal" or "Engineering Stack".
+
+#### [NEW] `components/ArchitectureShowcase.tsx`
+
+A section showing your systems architecture capability with:
+- A visual representation of how your systems interconnect (SVG or CSS-based diagram)
+- Shows: User Roles → Workflow Engine → Domain Models → Dashboards → Exports/APIs
+- Interactive hover states revealing details
+- Title: "How I Architect Systems"
+
+#### [NEW] `components/Footer.tsx`
+
+Professional footer with:
+- Name & tagline
+- Quick navigation links
+- Social links (LinkedIn, Email, GitHub placeholder)
+- "Open to opportunities" badge
+- Copyright
 
 ---
 
-## File Summary
+### 3. About Page Rewrite
 
-| Action | File | Purpose |
-|--------|------|---------|
-| MODIFY | [tailwind.config.ts](file:///c:/laragon/www/RidBar%20Portofolio/tailwind.config.ts) | New dark color palette, fonts, keyframes |
-| MODIFY | [globals.css](file:///c:/laragon/www/RidBar%20Portofolio/app/globals.css) | Dark theme, animations, utilities |
-| MODIFY | [layout.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/layout.tsx) | Add Bebas Neue font, dark body |
-| MODIFY | [Header.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Header.tsx) | Dark editorial nav redesign |
-| NEW | `components/HeroSection.tsx` | Full-screen cinematic hero |
-| NEW | `components/HeroVisual.tsx` | Abstract profile placeholder |
-| NEW | `components/FeaturedProjects.tsx` | Editorial project cards |
-| NEW | `components/Marquee.tsx` | Infinite scrolling text strip |
-| NEW | `components/TechDecorations.tsx` | Decorative UI elements |
-| MODIFY | [profile.ts](file:///c:/laragon/www/RidBar%20Portofolio/data/profile.ts) | New hero/role/social fields |
-| MODIFY | [page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/page.tsx) | Recomposed landing page |
+#### [MODIFY] [about/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/about/page.tsx)
 
-**New dependency**: `framer-motion` (install via `npm install framer-motion`)
+- Change page title/description meta to fullstack developer
+- Rewrite "Professional Positioning" → "Engineering Profile"
+- Rewrite focus areas to emphasize fullstack skills, not just manufacturing
+- Add an **Experience Timeline** section showing project chronology
+- Add a **"What I Bring to Your Team"** section with value propositions for HR:
+  - "I ship production-grade systems, not toy projects"
+  - "I design data models that handle real operational complexity"
+  - "I build role-based workflows that multiple teams use daily"
+  - "I integrate with external services (Google API, Excel, PDF)"
+
+---
+
+### 4. Contact Page Enhancement
+
+#### [MODIFY] [contact/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/contact/page.tsx)
+
+- Add a CTA section: "Looking for a fullstack developer who ships real systems?"
+- Add availability status badge (green dot + "Available for hire")
+- Add a simple contact form (name, email, message) — even if frontend-only, it shows UX skill
+- Add download resume button
+
+---
+
+### 5. Layout & SEO Updates
+
+#### [MODIFY] [layout.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/layout.tsx)
+
+- Update metadata title: `"Ridha Akbar | Fullstack Developer & Systems Architect"`
+- Update description to emphasize fullstack development and systems architecture
+- Update OpenGraph metadata
+
+---
+
+### 6. Skills Data Enhancement
+
+#### [MODIFY] [projects.ts](file:///c:/laragon/www/RidBar%20Portofolio/data/projects.ts)
+
+- Rewrite `skills` array to lead with technical skills (Laravel, PHP, MySQL, REST API) before domain skills
+- Add new skills: `"API Design & Integration"`, `"Database Architecture"`, `"Frontend Development"`
+- Rewrite `timeline` to emphasize engineering progression
+- Rewrite `impactMetrics` with more quantifiable language
+
+---
+
+### 7. Resume Page Enhancement
+
+#### [MODIFY] [resume/page.tsx](file:///c:/laragon/www/RidBar%20Portofolio/app/resume/page.tsx)
+
+- Add a "Technical Skills" grid section at the top (before CV preview)
+- Add project count and system domain highlights
+- Make the capability map more visual with progress bars or categorized cards
+
+---
+
+### 8. Header Navigation Update
+
+#### [MODIFY] [Header.tsx](file:///c:/laragon/www/RidBar%20Portofolio/components/Header.tsx)
+
+- Add "Resume" to navigation
+- Reorder: `Home | Projects | About | Resume | Contact`
+- Add a subtle CTA button for "Hire Me" or "Contact" with ember styling
+
+---
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Identity Change**: This plan completely repositions you from "Industrial Engineering Fresh Graduate" to "Fullstack Developer & Systems Architect." Your industrial engineering background becomes a *differentiator* ("I understand the domains I build for"), not your primary identity. Are you comfortable with this shift?
+
+> [!IMPORTANT]
+> **GitHub Repository**: Your `github` field is empty. Do you have a GitHub profile to link? Even if the manufacturing repos are private, having a GitHub link with any public activity is critical for tech hiring. If you don't have one, I'll add a placeholder with a note.
+
+> [!WARNING]
+> **Metrics & Numbers**: I'll use conservative, honest metrics (e.g., "8 production systems", "5 enterprise domains"). I will NOT fabricate fake numbers like "reduced downtime by 40%." However, if you have any real measurements, please share them — they would significantly strengthen the portfolio.
+
+## Open Questions
+
+1. **Do you have a professional photo?** The hero currently shows "RA" initials. A real photo dramatically increases HR trust. If you have one, tell me the path.
+
+2. **GitHub profile URL?** Even a profile with a few repos or contributions makes a difference.
+
+3. **Any real impact metrics?** Example: "System used by X operators daily" or "Reduced report generation from X hours to Y minutes."
+
+4. **Your actual work experience timeline?** Were these 8 systems built during an internship, freelance, or full-time position? Dates would help the Experience section.
+
+5. **Are you targeting specific company types?** (Startups vs Enterprise, Remote vs On-site, Indonesia vs International?)
 
 ---
 
 ## Verification Plan
 
-### Automated Tests
-```bash
-npm run build
-```
-Ensures no TypeScript errors, no broken imports, and successful static generation.
-
 ### Manual Verification
-1. **`npm run dev`** — visual inspection on `http://localhost:3000`
-2. **Desktop viewport** (1440px+): Verify cinematic hero layout, typography scale, parallax, animations
-3. **Tablet viewport** (768px): Verify responsive breakpoints, column stacking
-4. **Mobile viewport** (375px): Verify typography hierarchy, marquee, hamburger nav
-5. **Animation check**: Page load reveals, scroll-triggered project cards, button hovers
-6. **Navigation**: All nav links still work (`/about`, `/projects`, `/contact`, etc.)
-7. **Performance**: Lighthouse check for Core Web Vitals — target 90+ performance score
-8. **Screenshot**: Capture browser screenshots for visual walkthrough
+- Run `npm run dev` and visually inspect all pages
+- Test all navigation links and anchor scrolls
+- Verify responsive design on mobile viewport
+- Check that all screenshots load correctly
+- Test framer-motion animations
+- Verify SEO metadata in browser dev tools
+
+### Build Verification
+- Run `npm run build` to ensure no TypeScript or build errors
+- Verify all static paths generate correctly

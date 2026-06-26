@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { HeroLandscape } from "@/components/HeroLandscape";
 import { HeroVisual } from "@/components/HeroVisual";
 import { Marquee } from "@/components/Marquee";
-import { DevFloatingIcons, ProjectCounter, ScrollIndicator, StatusDot } from "@/components/TechDecorations";
+import { DevFloatingIcons, ProjectCounter, StatusDot } from "@/components/TechDecorations";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 
@@ -111,10 +111,6 @@ export function HeroSection() {
             </span>
           </Link>
         </div>
-      </div>
-
-      <div className="absolute bottom-20 left-1/2 z-20 hidden -translate-x-1/2 md:block">
-        <ScrollIndicator />
       </div>
 
       <div className="absolute bottom-0 left-0 z-20 w-full">

@@ -1,5 +1,3 @@
-import { ChevronDown } from "lucide-react";
-
 type StatusDotProps = {
   label?: string;
 };
@@ -49,15 +47,6 @@ export function DevFloatingIcons() {
           {icon.label}
         </span>
       ))}
-    </div>
-  );
-}
-
-export function ScrollIndicator() {
-  return (
-    <div className="flex flex-col items-center gap-1 text-[10px] font-bold uppercase text-text-secondary">
-      <span>scroll ke bawah</span>
-      <ChevronDown className="animate-bounce text-accent" size={18} />
     </div>
   );
 }

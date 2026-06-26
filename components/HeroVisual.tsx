@@ -42,10 +42,12 @@ export function HeroVisual() {
           </span>
         </div>
 
-        <div className="mx-auto flex h-36 w-36 items-center justify-center rounded-[2rem] border border-border bg-bg-elevated shadow-soft">
-          <span className="rounded-[1.5rem] bg-bg-secondary px-6 py-5 font-display text-5xl font-black text-accent shadow-sm">
-            RA
-          </span>
+        <div className="mx-auto flex h-40 w-40 items-center justify-center rounded-[2rem] border border-border bg-bg-elevated p-2 shadow-soft">
+          <img
+            src="/41A268D6-C03B-4FC0-8F57-7A73FB60EBD0%20(1).jpg"
+            alt="Muhammad Ridha Akbar"
+            className="h-full w-full rounded-[1.5rem] object-cover object-center shadow-sm"
+          />
         </div>
 
         <div className="rounded-2xl border border-border bg-bg-primary/80 p-4 shadow-sm">

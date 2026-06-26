@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Download, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { profile } from "@/data/profile";
@@ -43,42 +44,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <form className="rounded-2xl border border-border bg-bg-secondary p-5 shadow-sm md:p-8">
-            <h2 className="font-display text-5xl leading-none text-text-primary">Start a Conversation</h2>
-            <div className="mt-6 grid gap-4">
-              <label className="grid gap-2 text-xs font-bold uppercase text-text-secondary">
-                Name
-                <input
-                  className="border border-border bg-bg-primary px-4 py-3 text-sm normal-case text-text-primary outline-none transition placeholder:text-dust focus:border-accent"
-                  name="name"
-                  placeholder="Your name"
-                />
-              </label>
-              <label className="grid gap-2 text-xs font-bold uppercase text-text-secondary">
-                Email
-                <input
-                  className="border border-border bg-bg-primary px-4 py-3 text-sm normal-case text-text-primary outline-none transition placeholder:text-dust focus:border-accent"
-                  name="email"
-                  type="email"
-                  placeholder="you@example.com"
-                />
-              </label>
-              <label className="grid gap-2 text-xs font-bold uppercase text-text-secondary">
-                Message
-                <textarea
-                  className="min-h-36 border border-border bg-bg-primary px-4 py-3 text-sm normal-case text-text-primary outline-none transition placeholder:text-dust focus:border-accent"
-                  name="message"
-                  placeholder="Tell me about the role, project, or system you need built."
-                />
-              </label>
-              <button
-                type="button"
-                className="rounded-lg bg-cta px-5 py-3 text-sm font-black uppercase text-white transition hover:bg-cta-hover"
-              >
-                Frontend-only form
-              </button>
-            </div>
-          </form>
+          <ContactForm />
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-4">
@@ -95,7 +61,7 @@ export default function ContactPage() {
           <a href={profile.socialLinks.github} className="rounded-xl border border-border bg-bg-secondary p-5 transition hover:border-accent">
             <Github className="text-accent" size={22} />
             <p className="mt-4 text-sm font-bold uppercase text-text-secondary">GitHub</p>
-            <p className="mt-2 font-black text-text-primary">Add profile URL</p>
+            <p className="mt-2 font-black text-text-primary">ridhaakbarm</p>
           </a>
           <div className="rounded-xl border border-border bg-bg-secondary p-5">
             <MapPin className="text-accent" size={22} />

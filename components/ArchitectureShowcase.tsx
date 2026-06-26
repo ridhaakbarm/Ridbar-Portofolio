@@ -1,9 +1,24 @@
 const layers = [
-  { title: "User Roles", detail: "Admin, operator, leader, QC, PPIC, verifier, technician, supervisor" },
-  { title: "Workflow Engine", detail: "Approvals, tickets, queues, pauses, revisions, verification states" },
-  { title: "Domain Models", detail: "Work orders, OEE reports, samples, assets, PM checks, schedules, lots" },
-  { title: "Dashboards", detail: "Monitoring boards, KPI views, queues, reports, and operational analysis" },
-  { title: "Exports & APIs", detail: "Excel, PDF, Google Sheets sync, REST endpoints, recalculation commands" }
+  {
+    title: "User Roles",
+    detail: "Admin, operator, leader, QC, PPIC, verifier, technician, supervisor"
+  },
+  {
+    title: "Workflow Engine",
+    detail: "Approvals, tickets, queues, pauses, revisions, verification states"
+  },
+  {
+    title: "Domain Models",
+    detail: "Work orders, OEE reports, samples, assets, PM checks, schedules, lots"
+  },
+  {
+    title: "Dashboards",
+    detail: "Monitoring boards, KPI views, queues, reports, and operational analysis"
+  },
+  {
+    title: "Exports & APIs",
+    detail: "Excel, PDF, Google Sheets sync, REST endpoints, recalculation commands"
+  }
 ];
 
 export function ArchitectureShowcase() {
@@ -22,18 +37,26 @@ export function ArchitectureShowcase() {
             </p>
           </div>
 
-          <div className="grid gap-3">
+          <div className="relative">
+            <div className="absolute left-6 top-6 hidden h-[calc(100%-3rem)] w-px bg-border md:block" />
+            <div className="grid gap-4">
             {layers.map((layer, index) => (
-              <div key={layer.title} className="group grid gap-4 rounded-xl border border-border bg-bg-secondary p-4 shadow-sm transition hover:border-accent md:grid-cols-[150px_1fr]">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/40 font-display text-2xl font-black text-accent">
-                    {index + 1}
+              <div
+                key={layer.title}
+                className="group relative grid gap-4 rounded-2xl border border-border bg-bg-secondary p-5 pl-5 shadow-sm transition hover:border-accent md:grid-cols-[4.5rem_1fr] md:items-start"
+              >
+                <div className="relative z-10 flex md:justify-center">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-accent/30 bg-accent-soft font-display text-2xl font-black text-accent shadow-sm">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display text-3xl font-black leading-none text-text-primary">{layer.title}</h3>
                 </div>
-                <p className="text-sm leading-6 text-text-secondary">{layer.detail}</p>
+                <div className="min-w-0">
+                  <h3 className="text-xl font-black leading-tight text-text-primary">{layer.title}</h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-6 text-text-secondary">{layer.detail}</p>
+                </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </div>

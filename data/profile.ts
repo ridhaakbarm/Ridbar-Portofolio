@@ -30,7 +30,7 @@ export const profile = {
     "Maintenance Workflows"
   ],
   socialLinks: {
-    github: "#",
+    github: "https://github.com/ridhaakbarm",
     linkedin: "https://www.linkedin.com/in/ridhaakbar",
     email: "mailto:ridhaakbarm@gmail.com"
   },
